@@ -22,5 +22,11 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
+    - name: sonarqube analaysis
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      run: mvn sonar:sonar -D"sonar.projectKey"="test-project" -D"sonar.projectName"='test project'
+
     - name: Build with Ant
       run: ant
