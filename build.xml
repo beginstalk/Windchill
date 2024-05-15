@@ -1,1 +1,23 @@
-<!-- Write the ant Script Here -->
+<?xml version="1.0"?>
+<project name="SimpleJavaCompile" default="compile" basedir=".">
+
+    <!-- Define where the source code and classes will be -->
+    <property name="src.dir" value="src/com/accenture"/>
+    <property name="build.dir" value="build"/>
+
+    <!-- Setup the directory where compiled classes will go -->
+    <target name="init">
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+    <!-- Compile the java code from src to build -->
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${build.dir}"/>
+    </target>
+
+    <!-- A clean target to clean up the build directory -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+    </target>
+
+</project>
