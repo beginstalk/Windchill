@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     
     steps:
     - name: Checkout Repository
@@ -29,5 +29,5 @@ jobs:
       uses: sonarsource/sonarqube-scan-action@master
       # run: mvn sonar:sonar -D"sonar.projectKey"="test-project" -D"sonar.projectName"='test project'
 
-    - name: Build with Ant
-      run: ant
+    # - name: Build with Ant
+    #   run: ant
