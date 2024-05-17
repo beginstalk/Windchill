@@ -18,9 +18,9 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <sonar.projectKey>test-project</sonar.projectKey>
     <sonar.projectName>test project</sonar.projectName>
-    <sonar.java.sources>src</sonar.java.sources>
+<!--     <sonar.java.sources>src</sonar.java.sources>
     <sonar.java.binaries>**/*</sonar.java.binaries>
-    <sonar.java.file.suffixes>java</sonar.java.file.suffixes>
+    <sonar.java.file.suffixes>java</sonar.java.file.suffixes> -->
   </properties>
 
   <dependencies>
@@ -34,13 +34,6 @@
 
   <build>
     <sourceDirectory>src</sourceDirectory>
-     <scriptSourceDirectory>src</scriptSourceDirectory>
-    <testSourceDirectory>src</testSourceDirectory>
-<testResources>
-    <testResource>
-        <directory>test</directory>
-    </testResource>
-</testResources>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
@@ -55,11 +48,6 @@
         </plugin>
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
-          <configuration>
-                <includes>
-                    <include>src</include>
-                </includes>
-          </configuration>
           <version>3.8.0</version>
         </plugin>
         <plugin>
@@ -69,11 +57,6 @@
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
-          <configuration>
-            <includes>
-              <include>**/*.java</include>
-            </includes>
-          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-install-plugin</artifactId>
