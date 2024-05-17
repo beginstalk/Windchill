@@ -18,7 +18,9 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <sonar.projectKey>test-project</sonar.projectKey>
     <sonar.projectName>test project</sonar.projectName>
-    <sonar.java.binaries>**/*.java</sonar.java.binaries>
+    <sonar.java.sources>src</sonar.java.sources>
+    <sonar.java.binaries>**/*</sonar.java.binaries>
+    <sonar.java.file.suffixes>java</sonar.java.file.suffixes>
   </properties>
 
   <dependencies>
