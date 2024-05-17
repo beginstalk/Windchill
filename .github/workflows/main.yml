@@ -26,7 +26,8 @@ jobs:
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      run: mvn sonar:sonar -D"sonar.projectKey"="test-project" -D"sonar.projectName"='test project'
+      uses: sonarsource/sonarqube-scan-action@master
+      # run: mvn sonar:sonar -D"sonar.projectKey"="test-project" -D"sonar.projectName"='test project'
 
     - name: Build with Ant
       run: ant
