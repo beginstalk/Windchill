@@ -3,10 +3,13 @@ import java.util.logging.Logger;
 
 public class Fibonacci {
 
-    static Logger logger = Logger.getLogger(getClass().getName());
+    Logger logger = Logger.getLogger(getClass().getName());
 
-    public static int findFibonacci(int n){
-        if(n==0 || n==1) return n;
+    public void findFibonacci(int n){
+        if(n==0 || n==1){
+             logger.info(n + " Fibonacci is " + n);
+             return;
+        }
         int a=0;
         int b=1;
         int c=0;
@@ -15,13 +18,14 @@ public class Fibonacci {
            a = b;
            b = c;
         }
-        return c;
+        logger.info(n + " Fibonacci is " + c);
     }
 
     public static void main(String[] args){
+        
+        Fibonacci fib = new Fibonacci();
         int n = 5;
-        int answer = findFibonacci(n);
-        logger.info(n + "Fibonacci is " + answer);
+        fib.findFibonacci(n);
     }
 
 }
