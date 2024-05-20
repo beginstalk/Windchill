@@ -3,7 +3,7 @@ import java.util.logging.Logger;
 
 public class Fibonacci {
 
-    Logger logger = Logger.getLogger(getClass().getName());
+    static Logger logger = Logger.getLogger(getClass().getName());
 
     public static int findFibonacci(int n){
         if(n==0 || n==1) return n;
