@@ -8,7 +8,7 @@ public class Fibonacci {
 
     public void findFibonacci(int n){
         if(n==0 || n==1){
-             logger.info(n + " Fibonacci is " + n);
+            logger.log(Level.INFO, "{0} Fibonacci number is {1}",new Object[] {n,n});
              return;
         }
         int a=0;
