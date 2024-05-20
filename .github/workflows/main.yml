@@ -34,3 +34,10 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+      - name: Load file into Windchill
+        env:
+          WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}
+          WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
+          WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
+        run: |
+          ./scripts/load-file-to-windchill.sh  # Your custom load script
