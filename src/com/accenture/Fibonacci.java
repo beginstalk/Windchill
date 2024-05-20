@@ -1,5 +1,6 @@
 package com.accenture;
 import java.util.logging.Logger;
+import java.util.logging.Level; 
 
 public class Fibonacci {
 
@@ -18,13 +19,13 @@ public class Fibonacci {
            a = b;
            b = c;
         }
-        logger.info(n + " Fibonacci is " + c);
+        logger.log(Level.INFO, "{0} Fibonacci number is {1}",new Object[] {n,c});
     }
 
     public static void main(String[] args){
         
         Fibonacci fib = new Fibonacci();
-        int n = 5;
+        int n = 6;
         fib.findFibonacci(n);
     }
 
