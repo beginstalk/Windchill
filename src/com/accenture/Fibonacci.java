@@ -1,10 +1,15 @@
 package com.accenture;
+import java.util.logging.Logger;
 
 public class Fibonacci {
 
-    public static int find_n_fibonacci(int n){
+    Logger logger = Logger.getLogger(getClass().getName());
+
+    public static int findFibonacci(int n){
         if(n==0 || n==1) return n;
-        int a=0, b=1, c=0;
+        int a=0;
+        int b=1;
+        int c=0;
         for(int i=2; i<=n; i++){
            c = a+b;
            a = b;
@@ -15,8 +20,8 @@ public class Fibonacci {
 
     public static void main(String[] args){
         int n = 5;
-        int answer = find_n_fibonacci(n);
-        System.out.println(n + "Fibonacci is " + answer);
+        int answer = findFibonacci(n);
+        logger.info(n + "Fibonacci is " + answer);
     }
 
 }
