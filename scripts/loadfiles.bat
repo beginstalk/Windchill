@@ -12,14 +12,14 @@ set "JAVA_HOME=C:\Program Files\Amazon Corretto\jdk11.0.20_9"
 set "PATH=%JAVA_HOME%\bin;%WINDCHILL_HOME%\bin;%PATH%"
  
 REM Define the path to the files to be loaded
-set "FILES_TO_LOAD=C:\\Users\\cicduser\\Documents\\GitHub\\Windchill\\loadFiles\\com\\accenture\\preferences\\WTPart_0"
+set "FILES_TO_LOAD=C:\\Users\\cicduser\\Documents\\GitHub\\Windchill\\loadFiles\\com\\accenture\\preferences\\create_TML_PreferenceDefinitions.xml"
  
 REM Log the start time
 echo Starting file load process at %date% %time%
 echo ------------------------------------------------------------
  
 REM Example command to load a tml file
-windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -f %FILES_TO_LOAD%
+windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD%
  
 REM Add additional commands as needed for other file types or operations
  
