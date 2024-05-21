@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE NmLoader
+  SYSTEM "standard12_1.dtd">
+<NmLoader>
+   <csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      <csvname>PracticeAttributes</csvname>
+      <csvhierarchyDisplayName>PracticeAttributes</csvhierarchyDisplayName>
+      <csvorganizerPaths></csvorganizerPaths>
+      <csvdefinitionPaths/>
+      <csvdisplay_name/>
+      <csvdescription></csvdescription>
+      <csvdata_type>ORG</csvdata_type>
+      <csvQoMName/>
+      <csvnameValuePairs/>
+      <csvlogicalIdentifier/>
+   </csvAttrDefinizer>
+   <csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      <csvname>PubDepartment</csvname>
+      <csvhierarchyDisplayName>PubDepartment</csvhierarchyDisplayName>
+      <csvorganizerPaths>PracticeAttributes</csvorganizerPaths>
+      <csvdefinitionPaths/>
+      <csvdisplay_name>Publication Department</csvdisplay_name>
+      <csvdescription>Publication Department</csvdescription>
+      <csvdata_type>STR</csvdata_type>
+      <csvQoMName/>
+      <csvnameValuePairs/>
+      <csvlogicalIdentifier>PubDepartment</csvlogicalIdentifier>
+   </csvAttrDefinizer>
+   <csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      <csvname>AuthoringLanguage</csvname>
+      <csvhierarchyDisplayName>AuthoringLanguage</csvhierarchyDisplayName>
+      <csvorganizerPaths>PracticeAttributes</csvorganizerPaths>
+      <csvdefinitionPaths/>
+      <csvdisplay_name>Authoring Language</csvdisplay_name>
+      <csvdescription>Authoring Language</csvdescription>
+      <csvdata_type>STR</csvdata_type>
+      <csvQoMName/>
+      <csvnameValuePairs/>
+      <csvlogicalIdentifier>AuthoringLanguage</csvlogicalIdentifier>
+   </csvAttrDefinizer>
+   <csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      <csvname>TranslatedLanguage</csvname>
+      <csvhierarchyDisplayName>TranslatedLanguage</csvhierarchyDisplayName>
+      <csvorganizerPaths>PracticeAttributes</csvorganizerPaths>
+      <csvdefinitionPaths/>
+      <csvdisplay_name>Translated Language</csvdisplay_name>
+      <csvdescription>Translated Language</csvdescription>
+      <csvdata_type>STR</csvdata_type>
+      <csvQoMName/>
+      <csvnameValuePairs/>
+      <csvlogicalIdentifier>TranslatedLanguage</csvlogicalIdentifier>
+   </csvAttrDefinizer>
+   <csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      <csvname>LanguageInstructions</csvname>
+      <csvhierarchyDisplayName>LanguageInstructions</csvhierarchyDisplayName>
+      <csvorganizerPaths>PracticeAttributes</csvorganizerPaths>
+      <csvdefinitionPaths/>
+      <csvdisplay_name>Language Instructions</csvdisplay_name>
+      <csvdescription>Language Instructions</csvdescription>
+      <csvdata_type>STR</csvdata_type>
+      <csvQoMName/>
+      <csvnameValuePairs/>
+      <csvlogicalIdentifier>LanguageInstructions</csvlogicalIdentifier>
+   </csvAttrDefinizer>
+</NmLoader>

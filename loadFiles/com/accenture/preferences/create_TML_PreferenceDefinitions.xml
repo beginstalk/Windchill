@@ -1,0 +1,670 @@
+<?xml version="1.0"?>
+<!DOCTYPE NmLoader SYSTEM "standardX24.dtd">
+<!---->
+
+<NmLoader>
+
+    <csvPreferenceClient handler="wt.preference.LoadPreference.createPreferenceClient">
+        <csvname>WINDCHILL</csvname>
+        <csvparentName>
+        </csvparentName>
+        <csvdisplayName>wt.preference.preferenceResource:WINDCHILL_CLIENT</csvdisplayName>
+        <csvdescription>
+        </csvdescription>
+    </csvPreferenceClient>
+
+
+    <csvPreferenceCategory handler="wt.preference.LoadPreference.createPreferenceCategory">
+        <csvname>TRANSLATION_SUPPORT_CATEGORY</csvname>
+        <csvparentName>
+        </csvparentName>
+        <csvdisplayName>com.ptc.tml.TMLResource:TRANSLATION_SUPPORT_PREF_CATEGORY</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:TRANSLATION_SUPPORT_PREF_CATEGORY_DESCRIPTION</csvdescription>
+    </csvPreferenceCategory>
+
+    <!-- Defined Preferences -->
+
+    <!-- Translation Administrator Roles -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/TranslationCoordinatorRoles</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:TRANSLATION_COORDINATOR_ROLES_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:TRANSLATION_COORDINATOR_ROLES_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:TRANSLATION_COORDINATOR_ROLES_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/TranslationCoordinatorRoles</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>    
+    
+    
+    <!-- Base Languages -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/BaseLanguages</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:BASE_LANGUAGES_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:BASE_LANGUAGES_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:BASE_LANGUAGES_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/BaseLanguages</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Language Pairs -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/LanguagePairs</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:LANGUAGE_PAIRS_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:LANGUAGE_PAIRS_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:LANGUAGE_PAIRS_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:2000</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/LanguagePairs</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Supported Languages -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/SupportedLanguages</csvname>
+        <csvvisibility>SITE</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:SUPPORTED_LANGUAGES_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:SUPPORTED_LANGUAGES_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:SUPPORTED_LANGUAGES_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:10000</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/SupportedLanguages</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Translatable Soft Types -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/TranslatableSoftTypes</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:TRANSLATABLE_SOFT_TYPES_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:TRANSLATABLE_SOFT_TYPES_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:TRANSLATABLE_SOFT_TYPES_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:2000</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/TranslatableSoftTypes</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+    
+     <!-- Baseline Soft Type -->
+        <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+            <csvname>/com/ptc/tml/BaselineSoftType</csvname>
+            <csvvisibility>CONTAINER</csvvisibility>
+            <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+            <csvdisplayName>com.ptc.tml.TMLResource:BASELINE_SOFT_TYPE_PREF_NAME</csvdisplayName>
+            <csvdescription>com.ptc.tml.TMLResource:BASELINE_SOFT_TYPE_PREF_DESCRIPTION</csvdescription>
+            <csvlongDescription>com.ptc.tml.TMLResource:BASELINE_SOFT_TYPE_PREF_LONGDESCRIPTION</csvlongDescription>
+            <csvdefaultValue></csvdefaultValue>
+            <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:2000</csvhandler>
+            <csvclientOverride>false</csvclientOverride>
+            <csvclientDelegate/>
+            <csvclientData/>
+            <csvshowIfInstalled/>
+            <csvhideIfInstalled/>        
+        </csvPreferenceDefinition>
+    
+        <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+            <csvname>/com/ptc/tml/BaselineSoftType</csvname>
+            <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+    
+
+    <!-- Preserve Base Language Folder Path -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/PreserveBaseLanguageFolderPath</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:PRESERVE_BASE_LANGUAGE_FOLDER_PATH_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:PRESERVE_BASE_LANGUAGE_FOLDER_PATH_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:PRESERVE_BASE_LANGUAGE_FOLDER_PATH_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue>true</csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.BooleanPreferenceValueHandler:1</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/PreserveBaseLanguageFolderPath</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Translation Package Data Context -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/TranslationPackageDataContext</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:TRANSLATION_PACKAGE_DATA_CONTEXT_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:TRANSLATION_PACKAGE_DATA_CONTEXT_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:TRANSLATION_PACKAGE_DATA_CONTEXT_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:10000</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/TranslationPackageDataContext</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Translation Package Baseline Name Pattern -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/TranslationPackageBaselineNamePattern</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:TRANSLATION_PACKAGE_BASELINE_NAME_PATTERN_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:TRANSLATION_PACKAGE_BASELINE_NAME_PATTERN_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:TRANSLATION_PACKAGE_BASELINE_NAME_PATTERN_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/TranslationPackageBaselineNamePattern</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+					
+
+    <!-- Translation Link -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/TranslationLink</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:TRANSLATION_LINK_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:TRANSLATION_LINK_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:TRANSLATION_LINK_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/TranslationLink</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Translation Workflow Process -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/TranslationWorkflowProcess</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:TRANSLATION_WORKFLOW_PROCESS_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:TRANSLATION_WORKFLOW_PROCESS_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:TRANSLATION_WORKFLOW_PROCESS_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/TranslationWorkflowProcess</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Translation Release Process -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/TranslationReleaseProcess</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:TRANSLATION_RELEASE_PROCESS_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:TRANSLATION_RELEASE_PROCESS_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:TRANSLATION_RELEASE_PROCESS_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/TranslationReleaseProcess</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Core Translation Process -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/CoreTranslationProcess</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:CORE_TRANSLATION_PROCESS_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:CORE_TRANSLATION_PROCESS_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:CORE_TRANSLATION_PROCESS_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue>Core Translation Process</csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/CoreTranslationProcess</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Quote Translation Process -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/QuoteTranslationProcess</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:QUOTE_TRANSLATION_PROCESS_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:QUOTE_TRANSLATION_PROCESS_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:QUOTE_TRANSLATION_PROCESS_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue>Quote Translation Process</csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/QuoteTranslationProcess</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+    
+    <!-- Import Translation Process -->
+        <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+            <csvname>/com/ptc/tml/ImportTranslationProcess</csvname>
+            <csvvisibility>SITE</csvvisibility>
+            <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+            <csvdisplayName>com.ptc.tml.TMLResource:IMPORT_TRANSLATION_PROCESS_PREF_NAME</csvdisplayName>
+            <csvdescription>com.ptc.tml.TMLResource:IMPORT_TRANSLATION_PROCESS_PREF_DESCRIPTION</csvdescription>
+            <csvlongDescription>com.ptc.tml.TMLResource:IMPORT_TRANSLATION_PROCESS_PREF_LONGDESCRIPTION</csvlongDescription>
+            <csvdefaultValue>Import Translation Process</csvdefaultValue>
+            <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+            <csvclientOverride>false</csvclientOverride>
+            <csvclientDelegate/>
+            <csvclientData/>
+            <csvshowIfInstalled/>
+            <csvhideIfInstalled/>        
+        </csvPreferenceDefinition>
+    
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+         <csvname>/com/ptc/tml/ImportTranslationProcess</csvname>
+         <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+    
+    <!-- Translation Package Import Interval  -->
+            <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+                <csvname>/com/ptc/tml/ImportInterval</csvname>
+                <csvvisibility>SITE</csvvisibility>
+                <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+                <csvdisplayName>com.ptc.tml.TMLResource:IMPORT_INTERVAL_PREF_NAME</csvdisplayName>
+                <csvdescription>com.ptc.tml.TMLResource:IMPORT_INTERVAL_PREF_DESCRIPTION</csvdescription>
+                <csvlongDescription>com.ptc.tml.TMLResource:IMPORT_INTERVAL_PREF_LONGDESCRIPTION</csvlongDescription>
+                <csvdefaultValue>Translation Package Import Interval</csvdefaultValue>
+                <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+                <csvclientOverride>false</csvclientOverride>
+                <csvclientDelegate/>
+                <csvclientData/>
+                <csvshowIfInstalled/>
+                <csvhideIfInstalled/>        
+            </csvPreferenceDefinition>
+        
+        <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+             <csvname>/com/ptc/tml/ImportInterval</csvname>
+             <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+    
+    <!-- Document Language Attribute -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/DocumentLanguageAttribute</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:DOCUMENT_LANGUAGE_ATTRIBUTE_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:DOCUMENT_LANGUAGE_ATTRIBUTE_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:DOCUMENT_LANGUAGE_ATTRIBUTE_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/DocumentLanguageAttribute</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+    
+    <!-- Document Language Attribute -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/TranslateAttribute</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:TRANSLATE_ATTRIBUTE_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:TRANSLATE_ATTRIBUTE_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:TRANSLATE_ATTRIBUTE_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/TranslateAttribute</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- In Translation State -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/InTranslationState</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:IN_TRANSLATION_STATE_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:IN_TRANSLATION_STATE_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:IN_TRANSLATION_STATE_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/InTranslationState</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Preparation State -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/PreparationState</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:PREPARATION_STATE_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:PREPARATION_STATE_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:PREPARATION_STATE_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/PreparationState</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Translated State -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/TranslatedState</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:TRANSLATED_STATE_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:TRANSLATED_STATE_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:TRANSLATED_STATE_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:200</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/TranslatedState</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Supported Vendor -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/SupportedVendor</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:SUPPORTED_VENDOR_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:SUPPORTED_VENDOR_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:SUPPORTED_VENDOR_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:256</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/SupportedVendor</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- External Import Folder -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/ExternalImportFolder</csvname>
+        <csvvisibility>SITE</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:EXTERNAL_IMPORT_FOLDER_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:EXTERNAL_IMPORT_FOLDER_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:EXTERNAL_IMPORT_FOLDER_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:256</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/ExternalImportFolder</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Pending State -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/PendingTranslationState</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:PENDING_TRANSLATION_STATE_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:PENDING_TRANSLATION_STATE_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:PENDING_TRANSLATION_STATE_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue></csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:50</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/PendingTranslationState</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Include Representation -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/IncludeRepresentation</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:INCLUDE_REPRESENTATION_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:INCLUDE_REPRESENTATION_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:INCLUDE_REPRESENTATION_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue>true</csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.BooleanPreferenceValueHandler:1</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/IncludeRepresentation</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+  
+    <!-- Use Object Name as Folder -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/UseObjectNameAsFolder</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:USE_OBJECTNAME_AS_FOLDER_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:USE_OBJECTNAME_AS_FOLDER_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:USE_OBJECTNAME_AS_FOLDER_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue>true</csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.BooleanPreferenceValueHandler:1</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/UseObjectNameAsFolder</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- PTCATML-77: Enable translation of new revision if old revision translation is not released -->
+    <!-- Allow Consecutive Translations -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/AllowConsecutiveTranslations</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:ALLOW_CONSECUTIVE_TRANSLATIONS_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:ALLOW_CONSECUTIVE_TRANSLATIONS_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:ALLOW_CONSECUTIVE_TRANSLATIONS_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue>true</csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.BooleanPreferenceValueHandler:1</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/AllowConsecutiveTranslations</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- PTCATML-70: Enable storage of translated object alongside source language object -->
+    <!-- Use Source Container Name in Folder Path -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/UseSourceContainerAsFolder</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:USE_SOURCE_CONTAINER_IN_FOLDERPATH_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:USE_SOURCE_CONTAINER_IN_FOLDERPATH_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:USE_SOURCE_CONTAINER_IN_FOLDERPATH_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue>true</csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.BooleanPreferenceValueHandler:1</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/UseSourceContainerAsFolder</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+    <!-- Generate xliff files automatically during translation package generation -->
+    <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+        <csvname>/com/ptc/tml/XliffFileAutoGenerate</csvname>
+        <csvvisibility>CONTAINER</csvvisibility>
+        <csvcategoryName>TRANSLATION_SUPPORT_CATEGORY</csvcategoryName>
+        <csvdisplayName>com.ptc.tml.TMLResource:XLIFF_FILE_AUTO_GENERATE_PREF_NAME</csvdisplayName>
+        <csvdescription>com.ptc.tml.TMLResource:XLIFF_FILE_AUTO_GENERATE_PREF_DESCRIPTION</csvdescription>
+        <csvlongDescription>com.ptc.tml.TMLResource:XLIFF_FILE_AUTO_GENERATE_PREF_LONGDESCRIPTION</csvlongDescription>
+        <csvdefaultValue>true</csvdefaultValue>
+        <csvhandler>com.ptc.windchill.enterprise.preference.handler.BooleanPreferenceValueHandler:1</csvhandler>
+        <csvclientOverride>false</csvclientOverride>
+        <csvclientDelegate/>
+        <csvclientData/>
+        <csvshowIfInstalled/>
+        <csvhideIfInstalled/>        
+    </csvPreferenceDefinition>
+
+    <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+        <csvname>/com/ptc/tml/XliffFileAutoGenerate</csvname>
+        <csvclientName>WINDCHILL</csvclientName>
+    </csvLinkPreferenceClientDefinition>
+
+</NmLoader>
