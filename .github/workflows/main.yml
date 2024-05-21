@@ -41,6 +41,7 @@ jobs:
           WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
         run: |
           cd scripts
-          loadfiles.bat
+          dir
+          ./loadfiles.bat
         
           
