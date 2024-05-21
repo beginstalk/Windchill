@@ -27,7 +27,7 @@ echo Starting file load process at %date% %time%
 echo ------------------------------------------------------------
  
 REM Example command to load a tml file
-REM windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -f %FILES_TO_LOAD%
+windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -f %FILES_TO_LOAD%
  
 REM Log the end time
 echo File load process completed at %date% %time%
