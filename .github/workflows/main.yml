@@ -39,7 +39,6 @@ jobs:
           WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}
           WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
           WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
-        shell: pwsh
         run: |
           cd scripts
           loadfiles.bat
