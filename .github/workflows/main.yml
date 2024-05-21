@@ -40,7 +40,7 @@ jobs:
           WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
           WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
         run: |
-          cd script
+          cd scripts
           load-file-to-windchill.bat
           shell: cmd
           
