@@ -12,7 +12,7 @@ set "JAVA_HOME=C:\Program Files\Amazon Corretto\jdk11.0.20_9"
 set "PATH=%JAVA_HOME%\bin;%WINDCHILL_HOME%\bin;%PATH%"
  
 REM Define the path to the files to be loaded
-set "FILES_TO_LOAD=C:\\Users\\cicduser\\Documents\\GitHub\\Windchill\\loadFiles\\com\\accenture\\preferences\\create_TML_PreferenceDefinitions.xml"
+set "FILES_TO_LOAD=C:\\Users\\cicduser\\Documents\\GitHub\\Windchill\\loadFiles\\com\\accenture\\preferences\\WTPart_0.xml"
  
 REM Log the start time
 echo Starting file load process at %date% %time%
