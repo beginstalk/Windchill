@@ -12,9 +12,9 @@ set "JAVA_HOME=C:\Program Files\Amazon Corretto\jdk11.0.20_9"
 set "PATH=%JAVA_HOME%\bin;%WINDCHILL_HOME%\bin;%PATH%"
  
 REM Define the path to the files to be loaded
-set "FILES_TO_LOAD1=C:\\Users\\cicduser\\Documents\\GitHub\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_0.xml"
-set "FILES_TO_LOAD2=C:\\Users\\cicduser\\Documents\\GitHub\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_1.xml"
-set "FILES_TO_LOAD3=C:\\Users\\cicduser\\Documents\\GitHub\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_2.xml"
+set "FILES_TO_LOAD1=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_0.xml"
+set "FILES_TO_LOAD2=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_1.xml"
+set "FILES_TO_LOAD3=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_2.xml"
 
 REM Log the start time
 echo Starting file load process at %date% %time%
