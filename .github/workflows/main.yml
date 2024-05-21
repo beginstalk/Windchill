@@ -40,4 +40,9 @@ jobs:
           WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
           WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
         run: |
-          ./scripts/load-file-to-windchill.bat  # Your custom load script
+          REM Change directory to the location of your .bat file
+          cd scripts
+          REM Execute the .bat file
+          load-file-to-windchill.bat
+          shell: cmd
+          
