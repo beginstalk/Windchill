@@ -1,0 +1,8 @@
+<!-- Object Initialization Rules -->
+<load file="com/accenture/oirs/abc.xml" username="${site-admin-user-name}" password="${site-admin-secret}" containerPath="/"/>
+<!-- Life Cycles -->
+<load file="com/accenture/lifecycles/AAbcLC.xml" username="${site-admin-user-name}" password="${site-admin-secret}" containerPath="/"/>
+<!-- Preferences -->
+<load file="com/accenture/preferences/AbcPreferences.xml" username="${site-admin-user-name}" password="${site-admin-secret}" containerPath="/"/>
+<!-- Types -->
+<load file="com/accenture/types/Supplier_0.xml" username="${site-admin-user-name}" password="${site-admin-secret}" containerPath="/"/>
