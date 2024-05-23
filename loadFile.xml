@@ -2,17 +2,17 @@
 <loadFileList>
 	
 	<!-- Types and Attributes -->
-		<loadFile filename="com/accenture/types/WTDocument_0.xml"/>
-		<loadFile filename="com/accenture/types/WTDocument_1.xml"/>
-		<loadFile filename="com/accenture/types/WTDocument_2.xml"/>
+		<loadFile filename="C:/actions-runner/_work/Windchill/Windchill/loadFiles/com/accenture/types/WTDocument_0.xml"/>
+		<loadFile filename="C:/actions-runner/_work/Windchill/Windchill/loadFiles/com/accenture/types/WTDocument_1.xml"/>
+		<loadFile filename="C:/actions-runner/_work/Windchill/Windchill/loadFiles/com/accenture/types/WTDocument_2.xml"/>
 		
 	<!-- Workflows -->
        
-	
+<!-- 	
 	<!-- Lifecycles -->
      <loadFile filename="com/accenture/lifecycles/AccenturePublicationsDocumentLC.xml"/>
 		
 	<!-- OIRs -->
-    <loadFile filename="com/accenture/oirs/AccenturePublicationsDocument_OIR.xml"/> 
+    <loadFile filename="com/accenture/oirs/AccenturePublicationsDocument_OIR.xml"/>  -->
 		
 </loadFileList>
