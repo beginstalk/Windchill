@@ -27,6 +27,30 @@
       <csvlogicalIdentifier>PubDepartment</csvlogicalIdentifier>
    </csvAttrDefinizer>
    <csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      <csvname>CustomAttributes</csvname>
+      <csvhierarchyDisplayName>CustomAttributes</csvhierarchyDisplayName>
+      <csvorganizerPaths></csvorganizerPaths>
+      <csvdefinitionPaths/>
+      <csvdisplay_name/>
+      <csvdescription></csvdescription>
+      <csvdata_type>ORG</csvdata_type>
+      <csvQoMName/>
+      <csvnameValuePairs/>
+      <csvlogicalIdentifier/>
+   </csvAttrDefinizer>
+   <csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
+      <csvname>ACCENTURE_DOC_TYPE</csvname>
+      <csvhierarchyDisplayName>ACCENTURE_DOC_TYPE</csvhierarchyDisplayName>
+      <csvorganizerPaths>CustomAttributes</csvorganizerPaths>
+      <csvdefinitionPaths/>
+      <csvdisplay_name>Document Type</csvdisplay_name>
+      <csvdescription>ACCENTURE_DOC_TYPE</csvdescription>
+      <csvdata_type>STR</csvdata_type>
+      <csvQoMName/>
+      <csvnameValuePairs/>
+      <csvlogicalIdentifier/>
+   </csvAttrDefinizer>
+   <csvAttrDefinizer handler="wt.iba.definition.DefinitionLoaderWithCache.createAttrDefinizer">
       <csvname>AuthoringLanguage</csvname>
       <csvhierarchyDisplayName>AuthoringLanguage</csvhierarchyDisplayName>
       <csvorganizerPaths>PracticeAttributes</csvorganizerPaths>
