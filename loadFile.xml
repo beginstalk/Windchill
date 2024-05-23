@@ -2,9 +2,9 @@
 <loadFileList>
 	
 	<!-- Types and Attributes -->
-		<loadFile filename="com/accenture/types/WTDocument_0.xml"/>
-		<loadFile filename="com/accenture/types/WTDocument_1.xml"/>
-		<loadFile filename="com/accenture/types/WTDocument_2.xml"/>
+		<loadFile filename="loadFiles\\com\\accenture\\types\\WTDocument_0.xml"/>
+		<loadFile filename="loadFiles\\com\\accenture\\types\\WTDocument_1.xml"/>
+		<loadFile filename="loadFiles\\com\\accenture\\types\\WTDocument_2.xml"/>
 		
 	<!-- Workflows -->
        
