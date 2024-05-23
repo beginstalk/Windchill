@@ -10,9 +10,9 @@
        
 	
 	<!-- Lifecycles -->
-<!--         <loadFile filename="C:/actions-runner/_work/Windchill/Windchill/loadFiles/com/accenture/lifecycles/AccenturePublicationsDocumentLC.xml"/> -->
+     <loadFile filename="com/accenture/lifecycles/AccenturePublicationsDocumentLC.xml"/>
 		
 	<!-- OIRs -->
-<!--          <loadFile filename="C:/actions-runner/_work/Windchill/Windchill/loadFiles/com/accenture/oirs/AccenturePublicationsDocument_OIR.xml"/> -->
+    <loadFile filename="com/accenture/oirs/AccenturePublicationsDocument_OIR.xml"/> 
 		
 </loadFileList>
