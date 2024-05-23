@@ -27,7 +27,7 @@ REM Example command to load a tml file
  
 set "FILES_TO_LOAD=C:\\actions-runner\\_work\\Windchill\\Windchill\\loadFile.xml"
 
-windchill -v wt.load.LoadFileSet -file %FILES_TO_LOAD% -descr "Loading multiple files"
+windchill -v wt.load.LoadFileSet -file %FILES_TO_LOAD% -descr "Loading multiple files" -NOSERVERSTOP
 REM Add additional commands as needed for other file types or operations
  
 REM Log the end time
