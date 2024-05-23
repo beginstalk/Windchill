@@ -25,7 +25,7 @@ REM Example command to load a tml file
 @REM windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD2%
 @REM windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD3%
 
-xcopy /y/i/s "C:\\actions-runner\\_work\\Windchill\\Windchill\\loadFiles" "C:\\ptc\\Windchill_12.1\\Windchill\\loadFiles"
+@REM xcopy /y/i/s "C:\\actions-runner\\_work\\Windchill\\Windchill\\loadFiles" "C:\\ptc\\Windchill_12.1\\Windchill\\loadFiles"
 
 set "FILES_TO_LOAD=C:\\actions-runner\\_work\\Windchill\\Windchill\\loadFile.xml"
 
