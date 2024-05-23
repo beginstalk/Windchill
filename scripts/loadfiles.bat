@@ -8,7 +8,7 @@ set "WINDCHILL_URL=%WINDCHILL_URL%"
 set "WINDCHILL_USERNAME=%WINDCHILL_USERNAME%"
 set "WINDCHILL_PASSWORD=%WINDCHILL_PASSWORD%"
 set "WINDCHILL_HOME=C:\ptc\Windchill_12.1\Windchill"
-set "JAVA_HOME=C:\Program Files\Amazon Corretto\jdk11.0.20_9"
+set "JAVA_HOME=C:\Program Files\Amazon Corretto\jdk11.0.12"
 set "PATH=%JAVA_HOME%\bin;%WINDCHILL_HOME%\bin;%PATH%"
  
 REM Define the path to the files to be loaded
