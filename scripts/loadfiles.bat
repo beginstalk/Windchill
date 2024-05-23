@@ -12,19 +12,22 @@ set "JAVA_HOME=C:\Program Files\Amazon Corretto\jdk11.0.20_9"
 set "PATH=%JAVA_HOME%\bin;%WINDCHILL_HOME%\bin;%PATH%"
  
 REM Define the path to the files to be loaded
-set "FILES_TO_LOAD1=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_0.xml"
-set "FILES_TO_LOAD2=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_1.xml"
-set "FILES_TO_LOAD3=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_2.xml"
+@REM set "FILES_TO_LOAD1=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_0.xml"
+@REM set "FILES_TO_LOAD2=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_1.xml"
+@REM set "FILES_TO_LOAD3=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_2.xml"
 
 REM Log the start time
 echo Starting file load process at %date% %time%
 echo ------------------------------------------------------------
  
 REM Example command to load a tml file
-windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD1%
-windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD2%
-windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD3%
+@REM windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD1%
+@REM windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD2%
+@REM windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD3%
  
+set "FILES_TO_LOAD=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFile.xml"
+
+windchill wt.load.LoadFileSet -file %FILES_TO_LOAD% -descr <Loading multiple files> -UAOps|UNATTENDED -NOSERVERSTOP
 REM Add additional commands as needed for other file types or operations
  
 REM Log the end time
