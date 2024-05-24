@@ -33,7 +33,7 @@ set "FILES_TO_LOAD=C:\\actions-runner\\_work\\Windchill\\Windchill\\loadFile.xml
 
 @REM windchill -v wt.load.LoadFileSet -file %FILES_TO_LOAD% -descr "Loading multiple files" -UNATTENDED -NOSERVERSTOP
 
-ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture/Hello.java
+ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture
 
 REM Add additional commands as needed for other file types or operations
  
