@@ -29,6 +29,7 @@ REM Example command to load a tml file
 @REM xcopy /y/i/s "C:\\actions-runner\\_work\\Windchill\\Windchill\\loadFiles" "C:\\ptc\\Windchill_12.1\\Windchill\\loadFiles"
 
 set "FILES_TO_LOAD=C:\\actions-runner\\_work\\Windchill\\Windchill\\loadFile.xml"
+
 windchill -v wt.load.LoadFileSet -file %FILES_TO_LOAD% -descr "Loading multiple files" -UNATTENDED -NOSERVERSTOP
 
 @REM ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=C:/actions-runner/_work/Windchill/Windchill/src/com/accenture/Hello.java
