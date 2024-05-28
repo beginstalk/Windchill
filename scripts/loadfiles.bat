@@ -35,6 +35,10 @@ set "FILES_TO_LOAD=C:\\actions-runner\\_work\\Windchill\\Windchill\\loadFile.xml
 
 ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture/*.java
 
+set "ATTRIBUTE_ID=customTextID"
+xconfmanager -t codebase/service.properties -s wt.services/svc/default/com.ptc.core.components.descriptor.DataUtility/%ATTRIBUTE_ID%/java.lang.Object/0=com.dataUtility.DateDiffUtility/singleton -p
+windchill stop && windchill start
+
 REM Add additional commands as needed for other file types or operations
  
 REM Log the end time

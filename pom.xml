@@ -14,8 +14,8 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
     <sonar.projectKey>test-project</sonar.projectKey>
     <sonar.projectName>test project</sonar.projectName>
 <!--     <sonar.java.sources>src</sonar.java.sources>
