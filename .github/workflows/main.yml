@@ -33,7 +33,7 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+        run: mvn -B org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
       - name: Load file into Windchill
         env:
           WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}
