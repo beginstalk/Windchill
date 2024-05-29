@@ -37,7 +37,7 @@ ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture/*.jav
 
 
 set "ATTRIBUTE_ID=customTextID"
-xconfmanager -t C:/ptc/Windchill_12.1/Windchill/codebase/service.properties -s wt.services/svc/default/com.ptc.core.components.descriptor.DataUtility/customTextID/java.lang.Object/0=com.accenture.AttributeTextAreaDataUtility/singleton -p
+xconfmanager -t C:\ptc\Windchill_12.1\Windchill\codebase\service.properties -s wt.services/svc/default/com.ptc.core.components.descriptor.DataUtility/customTextID/java.lang.Object/0=com.accenture.AttributeTextAreaDataUtility/singleton -p
 echo property registered successfully
 
 windchill stop && windchill start
