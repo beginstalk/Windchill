@@ -42,7 +42,7 @@ call xconfmanager -t C:/ptc/Windchill_12.1/Windchill/codebase/service.properties
 echo After running xconfmanager
 
 echo Before restarting windchill
-(windchill stop || echo Windchill not running) && windchill start
+(windchill stop || echo Windchill restarting) && windchill start
 ping 127.0.0.1 -n 300 > nul
 
 
