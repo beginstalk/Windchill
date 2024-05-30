@@ -8,7 +8,7 @@ set "WINDCHILL_URL=%WINDCHILL_URL%"
 set "WINDCHILL_USERNAME=%WINDCHILL_USERNAME%"
 set "WINDCHILL_PASSWORD=%WINDCHILL_PASSWORD%"
 set "WINDCHILL_HOME=C:\ptc\Windchill_12.1\Windchill"
-set "JAVA_HOME=C:\Program Files\Amazon Corretto\jdk11.0.20_9"
+set "JAVA_HOME=C:\Program Files\Java\jdk-11.0.12"
 set "ANT_HOME=C:\ptc\Windchill_12.1\Windchill\ant"
 set "PATH=%JAVA_HOME%\bin;%WINDCHILL_HOME%\bin;%ANT_HOME%\bin;%PATH%"
 
@@ -38,7 +38,6 @@ ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture/*.jav
 
 xconfmanager -t C:/ptc/Windchill_12.1/Windchill/codebase/service.properties -s wt.services/svc/default/com.ptc.core.components.descriptor.DataUtility/customTextID/java.lang.Object/0=com.accenture.AttributeTextAreaDataUtility/singleton -p
 echo property registered successfully
-pause
 
 windchill stop && windchill start
 
