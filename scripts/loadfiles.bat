@@ -38,10 +38,12 @@ call ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture/
 echo After running ant
 
 echo Before running xconfmanager
-xconfmanager -t C:/ptc/Windchill_12.1/Windchill/codebase/service.properties -s wt.services/svc/default/com.ptc.core.components.descriptor.DataUtility/customTextID/java.lang.Object/0=com.accenture.AttributeTextAreaDataUtility/singleton -p
+call xconfmanager -t C:/ptc/Windchill_12.1/Windchill/codebase/service.properties -s wt.services/svc/default/com.ptc.core.components.descriptor.DataUtility/customTextID/java.lang.Object/0=com.accenture.AttributeTextAreaDataUtility/singleton -p
 echo After running xconfmanager
 
+echo Before restarting windchill
 windchill stop && windchill start
+echo After restarting windchill
 
 REM Add additional commands as needed for other file types or operations
  
