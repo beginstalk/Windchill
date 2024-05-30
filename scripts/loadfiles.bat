@@ -42,7 +42,7 @@ call xconfmanager -t C:/ptc/Windchill_12.1/Windchill/codebase/service.properties
 echo After running xconfmanager
 
 echo Before restarting windchill
-((windchill stop || echo Windchill not running) && windchill start) && echo windchill restarted
+start ((windchill stop || echo Windchill not running) && windchill start) && echo windchill restarted
 
 
 REM Add additional commands as needed for other file types or operations
