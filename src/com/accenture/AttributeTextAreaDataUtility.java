@@ -14,7 +14,7 @@ public class AttributeTextAreaDataUtility extends AbstractDataUtility {
         TextArea textarea = new TextArea();
         textarea.setValue(getAttributeDisplayValue(component_id, component_id, datum, mc));
         textarea.setReadOnly(true);
-        textarea.setWidth(40);
+        textarea.setWidth(35);
         textarea.setHeight(5);
         textarea.setName(component_id);
         return textarea;
