@@ -31,19 +31,19 @@ xcopy /y/i/s "C:\\actions-runner\\_work\\Windchill\\Windchill\\src" "C:\\ptc\\Wi
 
 set "FILES_TO_LOAD=C:\\actions-runner\\_work\\Windchill\\Windchill\\loadFile.xml"
 
-@REM windchill -v wt.load.LoadFileSet -file %FILES_TO_LOAD% -descr "Loading multiple files" -UNATTENDED -NOSERVERSTOP
+windchill -v wt.load.LoadFileSet -file %FILES_TO_LOAD% -descr "Loading multiple files" -UNATTENDED -NOSERVERSTOP
 
 echo Before running ant
-call ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture/*.java
+@REM call ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture/*.java
 echo After running ant
 
 echo Before running xconfmanager
-call xconfmanager -t C:/ptc/Windchill_12.1/Windchill/codebase/service.properties -s wt.services/svc/default/com.ptc.core.components.descriptor.DataUtility/customTextID/java.lang.Object/0=com.accenture.AttributeTextAreaDataUtility/singleton -p
+@REM call xconfmanager -t C:/ptc/Windchill_12.1/Windchill/codebase/service.properties -s wt.services/svc/default/com.ptc.core.components.descriptor.DataUtility/customTextID/java.lang.Object/0=com.accenture.AttributeTextAreaDataUtility/singleton -p
 echo After running xconfmanager
 
 echo Before restarting windchill
-(windchill stop || echo Windchill restarting) && windchill start
-ping 127.0.0.1 -n 300 > nul
+@REM (windchill stop || echo Windchill restarting) && windchill start
+@REM ping 127.0.0.1 -n 300 > nul
 
 
 REM Add additional commands as needed for other file types or operations
