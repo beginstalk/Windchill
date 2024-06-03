@@ -53,11 +53,11 @@ jobs:
           echo "${{ steps.abc.outputs.modified }}"
           echo "Added+Modified:"
           echo "${{ steps.abc.outputs.added_modified }}"
-      - name: Load file into Windchill
-        env:
-          WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}
-          WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
-          WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
+      # - name: Load file into Windchill
+      #   env:
+      #     WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}
+      #     WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
+      #     WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
         # run: |
         #   cd scripts
         #   dir
