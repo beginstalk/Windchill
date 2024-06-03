@@ -19,6 +19,14 @@
   </csvPhaseTemplateBegin>
   <csvPhaseTemplateEnd handler="wt.lifecycle.LoadLifeCycle.createPhaseTemplateEnd"></csvPhaseTemplateEnd>
   <csvPhaseTemplateBegin handler="wt.lifecycle.LoadLifeCycle.createPhaseTemplateBegin">
+    <csvname>Accepted</csvname>
+    <csvphaseState>ACCEPTED</csvphaseState>
+    <csvphaseWorkflow></csvphaseWorkflow>
+    <csvgateWorkflow></csvgateWorkflow>
+    <csvseriesSelector></csvseriesSelector>
+  </csvPhaseTemplateBegin>
+  <csvPhaseTemplateEnd handler="wt.lifecycle.LoadLifeCycle.createPhaseTemplateEnd"></csvPhaseTemplateEnd>
+  <csvPhaseTemplateBegin handler="wt.lifecycle.LoadLifeCycle.createPhaseTemplateBegin">
     <csvname>Released</csvname>
     <csvphaseState>RELEASED</csvphaseState>
     <csvphaseWorkflow></csvphaseWorkflow>
@@ -37,13 +45,25 @@
   <csvPhaseSuccessionBegin handler="wt.lifecycle.LoadLifeCycle.createPhaseSuccessionBegin">
     <csvlifeCycleName>Accenture Publications Lifecycle</csvlifeCycleName>
     <csvpredecessorPhaseState>INWORK</csvpredecessorPhaseState>
-    <csvsuccessorPhaseState>RELEASED</csvsuccessorPhaseState>
+    <csvsuccessorPhaseState>ACCEPTED</csvsuccessorPhaseState>
     <csvphaseTransition>NEXT</csvphaseTransition>
   </csvPhaseSuccessionBegin>
   <csvPhaseSuccessionBegin handler="wt.lifecycle.LoadLifeCycle.createPhaseSuccessionBegin">
     <csvlifeCycleName>Accenture Publications Lifecycle</csvlifeCycleName>
     <csvpredecessorPhaseState>INWORK</csvpredecessorPhaseState>
     <csvsuccessorPhaseState>OBSOLETE</csvsuccessorPhaseState>
+    <csvphaseTransition>SET_STATE</csvphaseTransition>
+  </csvPhaseSuccessionBegin>
+  <csvPhaseSuccessionBegin handler="wt.lifecycle.LoadLifeCycle.createPhaseSuccessionBegin">
+    <csvlifeCycleName>Accenture Publications Lifecycle</csvlifeCycleName>
+    <csvpredecessorPhaseState>ACCEPTED</csvpredecessorPhaseState>
+    <csvsuccessorPhaseState>RELEASED</csvsuccessorPhaseState>
+    <csvphaseTransition>NEXT</csvphaseTransition>
+  </csvPhaseSuccessionBegin>
+  <csvPhaseSuccessionBegin handler="wt.lifecycle.LoadLifeCycle.createPhaseSuccessionBegin">
+    <csvlifeCycleName>Accenture Publications Lifecycle</csvlifeCycleName>
+    <csvpredecessorPhaseState>ACCEPTED</csvpredecessorPhaseState>
+    <csvsuccessorPhaseState>RELEASED</csvsuccessorPhaseState>
     <csvphaseTransition>SET_STATE</csvphaseTransition>
   </csvPhaseSuccessionBegin>
   <csvPhaseSuccessionBegin handler="wt.lifecycle.LoadLifeCycle.createPhaseSuccessionBegin">
