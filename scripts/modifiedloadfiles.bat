@@ -17,6 +17,7 @@ set "PREFIX=C:/actions-runner/_work/Windchill/Windchill/"
 for %%i in (%MODIFIED_FILES%) do (
     set "FILE=%%i"
     set "START_WITH=!FILE:~0,23!"
+    echo !FILE!
     if "!START_WITH!"=="loadFiles/com/accenture" (
         set "FULL_FILE_NAME=%PREFIX%%%i"
         windchill wt.load.LoadFromFile -u wcadmin -p wcadmin -d !FULL_FILE_NAME!
