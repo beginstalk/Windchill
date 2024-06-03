@@ -1,1 +1,1 @@
-${{ steps.abc.outputs.all }}
+echo %MODIFIED_FILES%
