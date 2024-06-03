@@ -41,8 +41,8 @@ jobs:
           token: ${{secrets.ACCESS_GITHUB_TOKEN}}
       - name: printing
         run: |
-           cd scripts
-           dir
+          cd scripts
+          dir
           ./modifiedloadfiles.bat
 
       # - name: Load file into Windchill
