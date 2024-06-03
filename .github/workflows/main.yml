@@ -41,18 +41,10 @@ jobs:
           token: ${{secrets.ACCESS_GITHUB_TOKEN}}
       - name: printing
         run: |
-          echo "All:"
-          echo "${{ steps.abc.outputs.all }}"
-          echo "Added:"
-          echo "${{ steps.abc.outputs.added }}"
-          echo "Removed:"
-          echo "${{ steps.abc.outputs.removed }}"
-          echo "Renamed:"
-          echo "${{ steps.abc.outputs.renamed }}"
-          echo "Modified:"
-          echo "${{ steps.abc.outputs.modified }}"
-          echo "Added+Modified:"
-          echo "${{ steps.abc.outputs.added_modified }}"
+           cd scripts
+           dir
+          ./modifiedloadfiles.bat
+
       # - name: Load file into Windchill
       #   env:
       #     WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}

@@ -1,0 +1,1 @@
+echo ${{ steps.abc.outputs.all }}
