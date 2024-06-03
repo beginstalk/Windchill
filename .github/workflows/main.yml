@@ -34,14 +34,33 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+      - uses: jitterbit/get-changed-files@v1
+        id: abc
+        with: 
+          format: space-delimited
+          token: ${{secrets.ACCESS_GITHUB_TOKEN}}
+      - name: printing
+        run: |
+            echo "All:"
+            echo "${{ steps.abc.outputs.all }}"
+            echo "Added:"
+            echo "${{ steps.abc.outputs.added }}"
+            echo "Removed:"
+            echo "${{ steps.abc.outputs.removed }}"
+            echo "Renamed:"
+            echo "${{ steps.abc.outputs.renamed }}"
+            echo "Modified:"
+            echo "${{ steps.abc.outputs.modified }}"
+            echo "Added+Modified:"
+            echo "${{ steps.abc.outputs.added_modified }}"
       - name: Load file into Windchill
         env:
           WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}
           WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
           WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
-        run: |
-          cd scripts
-          dir
-          ./loadfiles.bat
+        # run: |
+        #   cd scripts
+        #   dir
+        #   ./loadfiles.bat
         
           
