@@ -1,1 +1,1 @@
-echo ${{ steps.abc.outputs.all }}
+${{ steps.abc.outputs.all }}
