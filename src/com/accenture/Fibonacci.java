@@ -6,10 +6,10 @@ public class Fibonacci {
 
     Logger logger = Logger.getLogger(getClass().getName());
 
-    public void findFibonacci(int n){
+    public int findFibonacci(int n){
         if(n==0 || n==1){
             logger.log(Level.INFO, "{0} Fibonacci number is {1}",new Object[] {n,n});
-             return;
+             return n;
         }
         int a=0;
         int b=1;
@@ -20,6 +20,7 @@ public class Fibonacci {
            b = c;
         }
         logger.log(Level.INFO, "{0} Fibonacci number is {1}",new Object[] {n,c});
+        return c;
     }
 
     public static void main(String[] args){
