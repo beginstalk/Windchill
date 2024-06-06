@@ -20,7 +20,7 @@ public class AttributeTextAreaDataUtility extends AbstractDataUtility {
         return textarea;
     }
     
-    private static String getAttributeDisplayValue(String attributeName, String componentId, Object datum, ModelContext mc) throws WTException {
+    public String getAttributeDisplayValue(String attributeName, String componentId, Object datum, ModelContext mc) throws WTException {
         Object raw_val = UtilityHelper.getRawValue(attributeName, datum, mc);
         String value = UtilityHelper.getStringValue(raw_val, componentId,datum, mc);
         return value;
