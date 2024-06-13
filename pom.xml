@@ -20,13 +20,14 @@
     <sonar.projectName>test project</sonar.projectName>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>artifactory-repo</id>
+      <url>http://localhost:8082/artifactory/windchill-devops-repo/</url>
+    </repository>
+  </repositories>
+
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.13</version>
-      <scope>test</scope>
-    </dependency>
 
      <dependency>
         <groupId>com.accenture</groupId>
@@ -303,15 +304,138 @@
         <scope>system</scope>
         <systemPath>C:/ptc/Windchill_12.1/Windchill/codebase/WEB-INF/lib/wncWeb.jar</systemPath>
      </dependency>
-      <!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
+
+      <!-- <dependency>
+        <groupId>com.wnc</groupId>
+        <artifactId>Foundation</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath> C:/ptc/Windchill_12.1/Windchill/srclib/wnc/Foundation.jar</systemPath>
+     </dependency> -->
+
+     <dependency>
+      <groupId>wt</groupId>
+      <artifactId>Foundation</artifactId>
+      <version>1.0</version>
+    </dependency>
+    
+       <dependency>
+        <groupId>com.wnc</groupId>
+        <artifactId>WtJmxPlugin</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath> C:/ptc/Windchill_12.1/Windchill/srclib/wnc/WtJmxPlugin.jar</systemPath>
+     </dependency>
+
+     <dependency>
+        <groupId>com.wnc</groupId>
+        <artifactId>WtJmxPlugin</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath> C:/ptc/Windchill_12.1/Windchill/srclib/wnc/WtJmxPlugin.jar</systemPath>
+</dependency>
+
+<dependency>
+        <groupId>com.wnc</groupId>
+        <artifactId>WtJmxWnc</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath> C:/ptc/Windchill_12.1/Windchill/srclib/wnc/WtJmxWnc.jar</systemPath>
+</dependency>
+
+<dependency>
+        <groupId>com.wnc</groupId>
+        <artifactId>WtJmxWnc-windu</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath> C:/ptc/Windchill_12.1/Windchill/srclib/wnc/WtJmxWnc-windu.jar</systemPath>
+</dependency>
+
+<dependency>
+        <groupId>com.wnc</groupId>
+        <artifactId>WtJmxWnc-winru</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath> C:/ptc/Windchill_12.1/Windchill/srclib/wnc/WtJmxWnc-winru.jar</systemPath>
+</dependency>
+
+<dependency>
+        <groupId>com.wnc</groupId>
+        <artifactId>WtPAAgent</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath> C:/ptc/Windchill_12.1/Windchill/srclib/wnc/WtPAAgent.jar</systemPath>
+</dependency>
+
+
+<dependency>
+        <groupId>com.wnc</groupId>
+        <artifactId>WtPerfUtil</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath> C:/ptc/Windchill_12.1/Windchill/srclib/wnc/WtPerfUtil.jar</systemPath>
+</dependency>
+
+<dependency>
+        <groupId>com.wnc</groupId>
+        <artifactId>wtSecurity</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath> C:/ptc/Windchill_12.1/Windchill/srclib/wnc/wtSecurity.jar</systemPath>
+</dependency>
+
+<dependency>
+        <groupId>com.wnc</groupId>
+        <artifactId>wvs</artifactId>
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath> C:/ptc/Windchill_12.1/Windchill/srclib/wnc/wvs.jar</systemPath>
+</dependency>
+	 
+
     <dependency>
-      <groupId>org.mockito</groupId>
-      <artifactId>mockito-core</artifactId>
-      <version>5.12.0</version>
-      <scope>test</scope>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+        <scope>test</scope>
     </dependency>
 
-  </dependencies>
+    <!-- <dependency>
+        <groupId>org.mockito</groupId>
+        <artifactId>mockito-core</artifactId>
+        <version>4.0.0</version>
+        <scope>test</scope>
+    </dependency> -->
+
+      <dependency>
+      <groupId>org.powermock</groupId>
+      <artifactId>powermock-module-junit4</artifactId>
+      <version>2.0.9</version>
+      <exclusions>
+            <!-- <exclusion>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>net.bytebuddy</groupId>
+                <artifactId>byte-buddy-agent</artifactId>
+            </exclusion> -->
+            <exclusion>
+                <groupId>org.objenesis</groupId>
+                <artifactId>objenesis</artifactId>
+            </exclusion>
+        </exclusions>
+      <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.powermock</groupId>
+         <artifactId>powermock-api-mockito2</artifactId>
+         <version>2.0.9</version>
+         <scope>test</scope>
+      </dependency>
+
+</dependencies>
 
   <build>
     <sourceDirectory>src</sourceDirectory>
@@ -365,6 +489,7 @@
           <artifactId>maven-clean-plugin</artifactId>
           <version>3.1.0</version>
         </plugin>
+        
         <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
         <plugin>
           <artifactId>maven-resources-plugin</artifactId>
