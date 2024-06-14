@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.anyString;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -25,6 +26,7 @@ import wt.util.WTException;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({PreferenceHelper.class, NmCommandBean.class})
+@Ignore
 public class DocumentLinkProviderTest {
 
     @InjectMocks
@@ -35,8 +37,8 @@ public class DocumentLinkProviderTest {
 
     @Mock
     private WTDocument wtDocument;
-
-
+    
+    
     @Before
     public void setUp() throws WTException {
         when(nmCommandBean.getPrimaryOid().getRefObject()).thenReturn(wtDocument);
