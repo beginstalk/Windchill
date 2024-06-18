@@ -17,6 +17,7 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 import org.powermock.api.support.membermodification.MemberMatcher;
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 
 import com.accenture.DocumentLinkProvider;
 import com.ptc.netmarkets.util.beans.NmCommandBean;
@@ -30,6 +31,7 @@ import wt.util.WTException;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({PreferenceHelper.class, NmCommandBean.class})
+@PowerMockIgnore("javax.management.*")
 public class DocumentLinkProviderTest {
 
 	private static final String SERVICE_FIELD = "service";
