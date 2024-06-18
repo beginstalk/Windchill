@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE NmLoader SYSTEM "standardX20.dtd">
+<NmLoader>
+   <csvPreferenceCategory handler="wt.preference.LoadPreference.createPreferenceCategory">
+      <csvname>accenture</csvname>
+      <csvparentName></csvparentName>
+      <csvdisplayName>Accenture</csvdisplayName>
+      <csvdescription></csvdescription>
+   </csvPreferenceCategory>
+   
+   
+    <csvPreferenceCategory handler="wt.preference.LoadPreference.createPreferenceCategory">
+      <csvname>interfaces</csvname>
+      <csvparentName>accenture</csvparentName>
+      <csvdisplayName>Interfaces</csvdisplayName>
+      <csvdescription></csvdescription>
+   </csvPreferenceCategory>
+
+   <csvPreferenceDefinition handler="wt.preference.LoadPreference.createPreferenceDefinition">
+      <csvname>Accenture/Interfaces/GoogleURL</csvname>
+      <csvvisibility>USER</csvvisibility>
+      <csvcategoryName>interfaces</csvcategoryName>
+      <csvdisplayName>Google URL</csvdisplayName>
+      <csvdescription>URL for the Google.com Domain</csvdescription>
+      <csvlongDescription>This prefernce is mainly set up to get the Google URL</csvlongDescription>
+      <csvdefaultValue>https://www.google.com/</csvdefaultValue>
+      <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:4000</csvhandler>
+   </csvPreferenceDefinition>
+
+   <csvLinkPreferenceClientDefinition handler="wt.preference.LoadPreference.setClientDefinitionLink">
+      <csvname>Accenture/Interfaces/GoogleURL</csvname>
+      <csvclientName>WINDCHILL</csvclientName>
+   </csvLinkPreferenceClientDefinition>
+</NmLoader>

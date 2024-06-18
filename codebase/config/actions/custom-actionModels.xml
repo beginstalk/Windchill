@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE actionmodels SYSTEM 'actionmodels.dtd'>
+
+<actionmodels resourceBundle="com.ptc.windchill.enterprise.doc.documentResource">
+   
+   <model name="docs row actions open">
+         <action name="openProductView" type="wvs"/> 
+		<action name="openInGoogle" type="openInGoogle"/>
+    </model>
+
+</actionmodels>
+

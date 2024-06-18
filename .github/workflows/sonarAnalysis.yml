@@ -2,7 +2,6 @@ name: SonarQubeAnalysis
 on: 
   push:
     branches:
-       - main
        - Develop
   pull_request:
     types: [opened]
@@ -18,18 +17,9 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 17
-      - name: Cache SonarQube packages
-        uses: actions/cache@v1
+      - uses: s4u/maven-settings-action@v3.0.0
         with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache Maven packages
-        uses: actions/cache@v1
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
+         servers: '[{"id": "artifactory-repo", "username": "admin", "password": "Admin123"}]'
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
