@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.anyString;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Ignore;
 import org.junit.runner.RunWith;
@@ -37,8 +38,8 @@ public class DocumentLinkProviderTest {
 
     @Mock
     private WTDocument wtDocument;
-
-
+    
+    
     @Before
     public void setUp() throws WTException {
         when(nmCommandBean.getPrimaryOid().getRefObject()).thenReturn(wtDocument);

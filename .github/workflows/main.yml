@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main # the name of your main branch
-  pull_request:
-    types: [opened, synchronize]
 jobs:
   build:
     name: Build
@@ -39,22 +37,20 @@ jobs:
         with: 
           format: space-delimited
           token: ${{secrets.ACCESS_GITHUB_TOKEN}}
-      - name: printing
+      - name: import Load Files
         env:
           MODIFIED_FILES: ${{steps.abc.outputs.added_modified}}
         run: |
           cd scripts
-          dir
-          ./modifiedloadfiles.bat
+          ./importloadfiles.bat
 
-      # - name: Load file into Windchill
-      #   env:
-      #     WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}
-      #     WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
-      #     WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
-        # run: |
-        #   cd scripts
-        #   dir
-        #   ./loadfiles.bat
+      - name: Windchill Build
+        env:
+          WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}
+          WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
+          WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
+        run: |
+          cd scripts
+          ./windchillBuild.bat
         
           

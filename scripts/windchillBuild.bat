@@ -28,13 +28,10 @@ REM Example command to load a tml file
 @REM windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD3%
 
 xcopy /y/i/s "C:\\actions-runner\\_work\\Windchill\\Windchill\\src" "C:\\ptc\\Windchill_12.1\\Windchill\\src"
-
-set "FILES_TO_LOAD=C:\\actions-runner\\_work\\Windchill\\Windchill\\loadFile.xml"
-
-windchill -v wt.load.LoadFileSet -file %FILES_TO_LOAD% -descr "Loading multiple files" -UNATTENDED -NOSERVERSTOP
+xcopy /y/i/s "C:\\actions-runner\\_work\\Windchill\\Windchill\\codebase" "C:\\ptc\\Windchill_12.1\\Windchill\\codebase"
 
 echo Before running ant
-@REM call ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture/*.java
+call ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture/*.java
 echo After running ant
 
 echo Before running xconfmanager
@@ -42,14 +39,10 @@ echo Before running xconfmanager
 echo After running xconfmanager
 
 echo Before restarting windchill
-@REM (windchill stop || echo Windchill restarting) && windchill start
-@REM ping 127.0.0.1 -n 300 > nul
+(windchill stop || echo Windchill restarting) && windchill start
+ping 127.0.0.1 -n 300 > nul
 
 
-REM Add additional commands as needed for other file types or operations
- 
-REM Log the end time
-echo File load process completed at %date% %time%
 echo ------------------------------------------------------------
  
 REM Check for errors
