@@ -302,6 +302,12 @@
         <version>1.0</version>
       </dependency>
 
+      <dependency>
+        <groupId>wnc</groupId>
+        <artifactId>IXLoad</artifactId>
+        <version>1.0</version>
+      </dependency>
+
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
@@ -385,6 +391,13 @@
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
+          <configuration>
+              <argLine>
+                 ${argLine} --add-opens java.base/java.lang=ALL-UNNAMED
+                  --add-opens java.base/java.lang.reflect=ALL-UNNAMED
+                  --add-opens java.base/java.util=ALL-UNNAMED
+              </argLine>
+          </configuration>
         </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>

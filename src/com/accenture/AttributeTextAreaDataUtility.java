@@ -9,20 +9,19 @@ import wt.util.WTException;
 
 public class AttributeTextAreaDataUtility extends AbstractDataUtility {
 
-	public Object getDataValue(String component_id, Object datum, ModelContext mc) throws WTException {
+	public Object getDataValue(String componentId, Object datum, ModelContext mc) throws WTException {
 
         TextArea textarea = new TextArea();
-        textarea.setValue(getAttributeDisplayValue(component_id, component_id, datum, mc));
+        textarea.setValue(getAttributeDisplayValue(componentId, componentId, datum, mc));
         textarea.setReadOnly(true);
         textarea.setWidth(35);
         textarea.setHeight(5);
-        textarea.setName(component_id);
+        textarea.setName(componentId);
         return textarea;
     }
     
-    public String getAttributeDisplayValue(String attributeName, String componentId, Object datum, ModelContext mc) throws WTException {
-        Object raw_val = UtilityHelper.getRawValue(attributeName, datum, mc);
-        String value = UtilityHelper.getStringValue(raw_val, componentId,datum, mc);
-        return value;
+    public String getAttributeDisplayValue(String attributeName, String componentId, Object datum, ModelContext mc) throws WTException{
+        Object rawVal = UtilityHelper.getRawValue(attributeName, datum, mc);
+        return UtilityHelper.getStringValue(rawVal, componentId,datum, mc);
     }
 }
