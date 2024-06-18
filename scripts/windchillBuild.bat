@@ -12,35 +12,22 @@ set "JAVA_HOME=C:\Program Files\Java\jdk-11.0.12"
 set "ANT_HOME=C:\ptc\Windchill_12.1\Windchill\ant"
 set "PATH=%JAVA_HOME%\bin;%WINDCHILL_HOME%\bin;%ANT_HOME%\bin;%PATH%"
 
- 
-REM Define the path to the files to be loaded
-@REM set "FILES_TO_LOAD1=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_0.xml"
-@REM set "FILES_TO_LOAD2=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_1.xml"
-@REM set "FILES_TO_LOAD3=C:\\actions-runner\\_work\Windchill\\Windchill\\loadFiles\\com\\accenture\\type\\WTDocument_2.xml"
-
 REM Log the start time
-echo Starting file load process at %date% %time%
 echo ------------------------------------------------------------
  
-REM Example command to load a tml file
-@REM windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD1%
-@REM windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD2%
-@REM windchill wt.load.LoadFromFile -u %WINDCHILL_USERNAME% -p %WINDCHILL_PASSWORD% -d %FILES_TO_LOAD3%
-
 xcopy /y/i/s "C:\\actions-runner\\_work\\Windchill\\Windchill\\src" "C:\\ptc\\Windchill_12.1\\Windchill\\src"
 xcopy /y/i/s "C:\\actions-runner\\_work\\Windchill\\Windchill\\codebase" "C:\\ptc\\Windchill_12.1\\Windchill\\codebase"
 
-echo Before running ant
+echo Running ant
 call ant -f %WINDCHILL_HOME%/bin/tools.xml class -Dclass.includes=com/accenture/*.java
-echo After running ant
 
-echo Before running xconfmanager
+@REM echo Running xconfmanager
 @REM call xconfmanager -t C:/ptc/Windchill_12.1/Windchill/codebase/service.properties -s wt.services/svc/default/com.ptc.core.components.descriptor.DataUtility/customTextID/java.lang.Object/0=com.accenture.AttributeTextAreaDataUtility/singleton -p
-echo After running xconfmanager
 
-echo Before restarting windchill
-(windchill stop || echo Windchill restarting) && windchill start
-ping 127.0.0.1 -n 300 > nul
+@REM echo Before restarting windchill
+@REM (windchill stop || echo Windchill restarting) && windchill start
+@REM ping 127.0.0.1 -n 300 > nul
+@REM echo windchill restarted
 
 
 echo ------------------------------------------------------------

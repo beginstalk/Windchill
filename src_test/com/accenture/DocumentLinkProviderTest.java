@@ -26,7 +26,6 @@ import wt.util.WTException;
 
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({PreferenceHelper.class, NmCommandBean.class})
-@Ignore
 public class DocumentLinkProviderTest {
 
     @InjectMocks

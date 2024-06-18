@@ -3,8 +3,6 @@ on:
   push:
     branches:
        - Develop
-  pull_request:
-    types: [opened]
 jobs:
   build:
     name: Build
