@@ -1,0 +1,20 @@
+name: Build
+on:
+  push:
+    branches:
+      - feature/Deployment_Type
+env:
+ build_type: incremental
+jobs:
+ build:
+  runs-on: self-hosted
+  steps:
+  -name: Run Incremental Build
+   if: env.build_type == 'incremental'
+   run: |
+     echo "Running Incremental Build"
+  -name: Run Full Build
+   if: env.build_type == 'full'
+   run: |
+     echo "Running Full Build"
+  
