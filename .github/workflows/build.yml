@@ -27,6 +27,7 @@ jobs:
       run: | 
        echo "executeBackup=true" >> $GITHUB_OUTPUT
        echo "buildType=incremental" >> $GITHUB_OUTPUT
+       echo ${{steps.set-outputs.outputs.executeBackup}}
 
   create-backup:
    needs: deployment-initializer
