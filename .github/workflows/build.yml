@@ -17,11 +17,12 @@ jobs:
      
     - name: set the output
       id: set-outputs
-      run: echo "executeBackup=true" >> $GITHUB_OUTPUT
+      run: echo "executeBackup=false" >> $GITHUB_OUTPUT
 
   create-backup:
    needs: deployment-initializer
    if: needs.deployment-initializer.outputs.executeBackup == 'true'
+   runs-on: self-hosted
    steps:
     - name: Database Backup
       run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB_Backup.bak' WITH INIT"
