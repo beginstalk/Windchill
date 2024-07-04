@@ -30,7 +30,7 @@ jobs:
 
   create-backup:
    needs: deployment-initializer
-   if: needs.deployment-initializer.outputs.executeBackup == 'true'
+   if: ${{needs.deployment-initializer.outputs.executeBackup == 'true'}}
    runs-on: self-hosted
    steps:
     - name: Database Backup
@@ -39,7 +39,7 @@ jobs:
   
   build:
     needs: deployment-initializer
-    if: needs.deployment-initializer.outputs.buildType == 'incremental' || needs.deployment-initializer.outputs.buildType == 'full'
+    if: ${{needs.deployment-initializer.outputs.buildType == 'incremental' || needs.deployment-initializer.outputs.buildType == 'full'}}
     runs-on: self-hosted
     steps:
       - name: Build and analyze
