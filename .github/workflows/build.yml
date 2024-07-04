@@ -9,8 +9,8 @@ jobs:
   deployment-initializer:
    runs-on: self-hosted
    outputs:
-    executeBackup: ${{steps.set-outputs.outputs.executeBackup}}
-    buildType: ${{steps.set-outputs.outputs.buildType}}
+    executeBackup: true
+    buildType: ${{ steps.set-outputs.outputs.buildType }}
    steps:
     - name: checkout code
       uses: actions/checkout@v2
@@ -30,7 +30,7 @@ jobs:
 
   create-backup:
    needs: deployment-initializer
-   if: ${{ needs.deployment-initializer.outputs.executeBackup == true }}
+   if: ${{ needs.deployment-initializer.outputs.executeBackup == 'true' }}
    runs-on: self-hosted
    steps:
     - name: Database Backup
