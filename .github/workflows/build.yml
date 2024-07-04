@@ -26,7 +26,7 @@ jobs:
       id: set-outputs
       run: | 
        echo "executeBackup=true" >> $GITHUB_OUTPUT
-       echo "buildType=incremental" >> $GITHUB_OUTPUT
+       echo "::set-output name=buildType::full"
 
   create-backup:
    needs: deployment-initializer
