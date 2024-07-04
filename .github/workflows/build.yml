@@ -8,8 +8,8 @@ env:
   BUILD_TYPE: incremental
 jobs:
   backup:
-   runs-on: self-hosted
    if: env.BUILD_TYPE == 'full'
+   runs-on: self-hosted
    steps:
     - name: Database Backup
       run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB_Backup.bak' WITH INIT"
