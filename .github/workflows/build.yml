@@ -4,20 +4,26 @@ on:
   push:
     branches:
       - feature/Deployment_Type
-env:
-  BUILD_TYPE: incremental
+    
 jobs:
   deployment-initializer:
    runs-on: self-hosted
    outputs:
     executeBackup: ${{steps.set-outputs.outputs.executeBackup}}
    steps:
-    - name: checkout
+    - name: checkout code
       uses: actions/checkout@v2
+      with:
+          fetch-depth: 0 
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v1
+      with:
+        java-version: 17
      
     - name: set the output
       id: set-outputs
-      run: echo "executeBackup=false" >> $GITHUB_OUTPUT
+      run: echo "executeBackup=true" >> $GITHUB_OUTPUT
 
   create-backup:
    needs: deployment-initializer
@@ -26,16 +32,39 @@ jobs:
    steps:
     - name: Database Backup
       run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB_Backup.bak' WITH INIT"
+  
+  
   build:
+    needs: [deployment-initializer,create-backup]
     runs-on: self-hosted
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Run Incremental Build
-        if: env.BUILD_TYPE == 'incremental'
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+
+      - uses: jitterbit/get-changed-files@v1
+        id: abc
+        with: 
+          format: space-delimited
+          token: ${{secrets.ACCESS_GITHUB_TOKEN}}
+
+      - name: import Load Files
+        env:
+          MODIFIED_FILES: ${{steps.abc.outputs.added_modified}}
         run: |
-          echo "Running Incremental Build"
-      - name: Run Full Build
-        if: env.BUILD_TYPE == 'full'
+          cd scripts
+          ./importloadfiles.bat
+
+      - name: Windchill Build
+        env:
+          WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}
+          WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
+          WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
         run: |
-          echo "Running Full Build"
+          cd scripts
+          ./windchillBuild.bat
+
+      
+     
