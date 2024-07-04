@@ -7,9 +7,21 @@ on:
 env:
   BUILD_TYPE: incremental
 jobs:
-  backup:
-   if: env.BUILD_TYPE == 'full'
+  deployment-initializer:
    runs-on: self-hosted
+   outputs:
+    executeBackup: ${{steps.set-outputs.outputs.executeBackup}}
+   steps:
+    - name: checkout
+      uses: actions/checkout@v2
+     
+    - name: set the output
+      id: set-outputs
+      run: echo "executeBackup=true" >> $GITHUB_OUTPUT
+
+  create-backup:
+   needs: deployment-initializer
+   if: needs.deployment-initializer.outputs.executeBackup == 'true'
    steps:
     - name: Database Backup
       run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB_Backup.bak' WITH INIT"
