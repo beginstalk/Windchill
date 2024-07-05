@@ -18,7 +18,8 @@ jobs:
       run: | 
        echo "::set-output name=executeBackup::false"
        echo "::set-output name=buildType::incremental"
-       echo "::set-output name=date::$(date +'%Y-%m-%d')"
+       $NOW=& Get-Date -format yyyy-MM-dd
+       echo "::set-output name=date::$NOW"
 
   create-backup:
    needs: deployment-initializer
