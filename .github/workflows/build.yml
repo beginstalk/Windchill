@@ -12,6 +12,9 @@ jobs:
     executeBackup: ${{ steps.set-outputs.outputs.executeBackup }}
     buildType: ${{ steps.set-outputs.outputs.buildType }}
     date: ${{ steps.set-outputs.outputs.date }}
+    executeRestore: ${{ steps.set-outputs.outputs.executeRestore }}
+    codebaseBackupId: ${{ steps.set-outputs.outputs.codebaseBackupid }}
+    DatabaseBackupId: ${{ steps.set-outputs.outputs.DatabaseBackupid }}
    steps:
     - name: set the output
       id: set-outputs
@@ -20,6 +23,9 @@ jobs:
        echo "::set-output name=buildType::xyz"
        $NOW=& Get-Date -format yyyy-MM-dd
        echo "::set-output name=date::$NOW"
+       echo "::set-output name=executeRestore::false"
+       echo "::set-output name=codebaseBackupid::2024-07-05"
+       echo "::set-output name=DatabaseBackupid::2024-07-05"
 
   create-backup:
    needs: deployment-initializer
@@ -27,19 +33,20 @@ jobs:
    runs-on: self-hosted
    steps:
     - name: Database Backup
-      run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB_Backup.bak' WITH INIT"
+      run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB\${{needs.deployment-initializer.outputs.date}}' WITH INIT"
 
     - name: Windchill Codebase Backup
       run: xcopy /y/i/s "C:\\ptc\\Windchill_12.1\\Windchill\\codebase" "C:\\Backup\\Codebase\\${{needs.deployment-initializer.outputs.date}}"
   
-  restore-base-windchill:
-   needs: deployment-initializer
-   if: ${{ needs.deployment-initializer.outputs.buildType == 'full'}}
+  restore-windchill:
+   needs: [deployment-initializer,create-backup]
+    if: ${{ needs.deployment-initializer.outputs.executeRestore == 'true' }}
    runs-on: self-hosted
    steps:
-    - name: revert to OOTB Database
-      run: sqlcmd -S TWX\WINDCHILL -Q "RESTORE DATABASE wcdbadmin FROM DISK='C:\Backup\DB_Backup.bak' WITH REPLACE"
-
+    - name: restore Database
+      run: sqlcmd -S TWX\WINDCHILL -Q "RESTORE DATABASE wcdbadmin FROM DISK='C:\Backup\DB\' WITH REPLACE"
+    - name: restore Codebase 
+      run:  xcopy /y/i/s "C:\\Backup\\Codebase\\${{needs.deployment-initializer.outputs.backupId}}" "C:\\ptc\\Windchill_12.1\\Windchill\\codebase"
   build:
     needs: deployment-initializer
     if: ${{ needs.deployment-initializer.outputs.buildType == 'incremental' || needs.deployment-initializer.outputs.buildType == 'full' }}
