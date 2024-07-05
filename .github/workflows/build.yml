@@ -11,12 +11,14 @@ jobs:
    outputs:
     executeBackup: ${{ steps.set-outputs.outputs.executeBackup }}
     buildType: ${{ steps.set-outputs.outputs.buildType }}
+    date: ${{ steps.set-outputs.outputs.date }}
    steps:
     - name: set the output
       id: set-outputs
       run: | 
        echo "::set-output name=executeBackup::true"
        echo "::set-output name=buildType::incremental"
+       echo "::set-output name=date::$(date +'%Y-%m-%d')"
 
   create-backup:
    needs: deployment-initializer
@@ -25,8 +27,18 @@ jobs:
    steps:
     - name: Database Backup
       run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB_Backup.bak' WITH INIT"
+
+    - name: Windchill Codebase Backup
+      run: xcopy /y/i/s "C:\\ptc\\Windchill_12.1\\Windchill\\codebase" "C:\\Backup\\Codebase\\${{needs.deployment-initializer.outputs.date}}"
   
-  
+  restore-base-windchill:
+   needs: deployment-initializer
+   if: ${{ needs.deployment-initializer.outputs.buildType == 'full'}}
+   runs-on: self-hosted
+   steps:
+    - name: revert to OOTB Database
+      run: sqlcmd -S TWX\WINDCHILL -Q "RESTORE DATABASE wcdbadmin FROM DISK='C:\Backup\DB_Backup.bak' WITH REPLACE"
+
   build:
     needs: deployment-initializer
     if: ${{ needs.deployment-initializer.outputs.buildType == 'incremental' || needs.deployment-initializer.outputs.buildType == 'full' }}
@@ -40,6 +52,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 17
+
       - uses: s4u/maven-settings-action@v3.0.0
         with:
          servers: '[{"id": "artifactory-repo", "username": "admin", "password": "Admin123"}]'
