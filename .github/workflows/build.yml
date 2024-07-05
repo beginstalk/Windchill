@@ -40,13 +40,13 @@ jobs:
   
   restore-windchill:
    needs: [deployment-initializer,create-backup]
-    if: ${{ needs.deployment-initializer.outputs.executeRestore == 'true' }}
+   if: ${{ needs.deployment-initializer.outputs.executeRestore == 'true' }}
    runs-on: self-hosted
    steps:
     - name: restore Database
-      run: sqlcmd -S TWX\WINDCHILL -Q "RESTORE DATABASE wcdbadmin FROM DISK='C:\Backup\DB\' WITH REPLACE"
+      run: sqlcmd -S TWX\WINDCHILL -Q "RESTORE DATABASE wcdbadmin FROM DISK='C:\Backup\DB\${{needs.deployment-initializer.outputs.DatabaseBackupId}}' WITH REPLACE"
     - name: restore Codebase 
-      run:  xcopy /y/i/s "C:\\Backup\\Codebase\\${{needs.deployment-initializer.outputs.backupId}}" "C:\\ptc\\Windchill_12.1\\Windchill\\codebase"
+      run:  xcopy /y/i/s "C:\\Backup\\Codebase\\${{needs.deployment-initializer.outputs.codebaseBackupId}}" "C:\\ptc\\Windchill_12.1\\Windchill\\codebase"
   build:
     needs: deployment-initializer
     if: ${{ needs.deployment-initializer.outputs.buildType == 'incremental' || needs.deployment-initializer.outputs.buildType == 'full' }}
