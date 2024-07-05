@@ -1,5 +1,5 @@
 ---
-name: Build
+name: DeploymentByType
 on:
   push:
     branches:
@@ -15,7 +15,7 @@ jobs:
     - name: set the output
       id: set-outputs
       run: | 
-       echo "::set-output name=executeBackup::true"
+       echo "::set-output name=executeBackup::false"
        echo "::set-output name=buildType::incremental"
 
   create-backup:
