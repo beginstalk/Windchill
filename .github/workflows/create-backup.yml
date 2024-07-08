@@ -1,22 +1,19 @@
 name: create-backup
 on:
   workflow_call:
-   inputs:
-    date:
-     description: 'current date'
-     required: true
-     type: string
 jobs:
-  create-backup:
+  database-backup:
     runs-on: self-hosted
     steps:
-    - name: checkout code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0 
-
     - name: Database Backup
-      run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB\${{inputs.date}}.bak' WITH INIT"
-
-    - name: Windchill Codebase Backup
-      run: xcopy /y/i/s "C:\\ptc\\Windchill_12.1\\Windchill\\codebase" "C:\\Backup\\Codebase\\${{inputs.date}}"
+      run: |
+        $curr_date = GET-DATE -format yyyy-MM-dd_HH:mm
+        sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB\${curr_date}.bak' WITH INIT"
+  
+  windchill-backup:
+     runs-on: self-hosted
+     steps:
+     - name: Windchill Codebase Backup
+       run: |
+        $curr_date = GET-DATE -format yyyy-MM-dd_HH:mm
+        xcopy /y/i/s "C:\\ptc\\Windchill_12.1\\Windchill\\codebase" "C:\\Backup\\Codebase\\${curr_date}"
