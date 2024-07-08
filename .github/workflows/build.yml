@@ -26,16 +26,16 @@ jobs:
        echo "::set-output name=executeRestore::false"
        echo "::set-output name=codebaseBackupid::2024-07-08"
        echo "::set-output name=DatabaseBackupid::2024-07-08"
-    - name: checkout code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0 
 
   create-backup:
    needs: deployment-initializer
    runs-on: self-hosted
    if: ${{ needs.deployment-initializer.outputs.executeBackup == 'true' }}
    steps:
+    - name: checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 
     - uses: ./.github/workflows/create-backup.yml
       with:
        inputs: |
