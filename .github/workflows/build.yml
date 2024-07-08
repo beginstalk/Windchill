@@ -31,6 +31,7 @@ jobs:
    needs: deployment-initializer
    runs-on: self-hosted
    if: ${{ needs.deployment-initializer.outputs.executeBackup == 'true' }}
+   steps: 
     - uses: ./.github/workflows/create-backup.yml
       with:
        inputs: |
