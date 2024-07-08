@@ -5,7 +5,7 @@ jobs:
   set-up-environment:
    runs-on: self-hosted
    outputs:
-    date: {{steps.set-outputs.outputs.date}}
+    date: ${{steps.set-outputs.outputs.date}}
    steps:
     - name: set the outputs
       id: set-outputs
