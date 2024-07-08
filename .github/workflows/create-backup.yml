@@ -2,18 +2,27 @@ name: create-backup
 on:
   workflow_call:
 jobs:
+  set-up-environment:
+   runs-on: self-hosted
+   outputs:
+    date: {{steps.set-outputs.outputs.date}}
+   steps:
+    - name: set the outputs
+      id: set-outputs
+      run: |
+        $curr_date = GET-DATE -format yyyy-MM-dd_HH:mm
+        echo "::set-output name=date::$curr_date"
+   
   database-backup:
+    needs: set-up-environment
     runs-on: self-hosted
     steps:
     - name: Database Backup
-      run: |
-        $curr_date = GET-DATE -format yyyy-MM-dd_HH:mm
-        sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB\${curr_date}.bak' WITH INIT"
+      run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB\${{needs.set-up-environment.outputs.date}}.bak' WITH INIT"  
   
   windchill-backup:
+     needs: set-up-environment
      runs-on: self-hosted
      steps:
      - name: Windchill Codebase Backup
-       run: |
-        $curr_date = GET-DATE -format yyyy-MM-dd_HH:mm
-        xcopy /y/i/s "C:\\ptc\\Windchill_12.1\\Windchill\\codebase" "C:\\Backup\\Codebase\\${curr_date}"
+       run: xcopy /y/i/s "C:\ptc\Windchill_12.1\Windchill\codebase" "C:\Backup\Codebase\${{needs.set-up-environment.outputs.date}}"
