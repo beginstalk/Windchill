@@ -10,7 +10,7 @@ jobs:
     - name: set the outputs
       id: set-outputs
       run: |
-        $curr_date = GET-DATE -format yyyy-MM-dd_HH:mm
+        $curr_date = GET-DATE -format yyyy-MM-dd_HH-mm
         echo "::set-output name=date::$curr_date"
    
   database-backup:
