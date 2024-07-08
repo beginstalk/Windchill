@@ -1,0 +1,16 @@
+name: create-backup
+on:
+  workflow_call:
+   inputs:
+    date:
+     description: 'current date'
+     required: true
+jobs:
+  create-backup:
+    runs-on: self-hosted
+    steps:
+    - name: Database Backup
+      run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB\${{inputs.date}}.bak' WITH INIT"
+
+    - name: Windchill Codebase Backup
+      run: xcopy /y/i/s "C:\\ptc\\Windchill_12.1\\Windchill\\codebase" "C:\\Backup\\Codebase\\${{inputs.date}}"

@@ -29,14 +29,13 @@ jobs:
 
   create-backup:
    needs: deployment-initializer
-   if: ${{ needs.deployment-initializer.outputs.executeBackup == 'true' }}
    runs-on: self-hosted
+   if: ${{ needs.deployment-initializer.outputs.executeBackup == 'true' }}
    steps:
-    - name: Database Backup
-      run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB\${{needs.deployment-initializer.outputs.date}}' WITH INIT"
-
-    - name: Windchill Codebase Backup
-      run: xcopy /y/i/s "C:\\ptc\\Windchill_12.1\\Windchill\\codebase" "C:\\Backup\\Codebase\\${{needs.deployment-initializer.outputs.date}}"
+    - uses: ./.github/workflows/create-backup.yml
+      with:
+       inputs: |
+        date=${{needs.deployment-initializer.outputs.date}}
   
   restore-windchill:
    needs: [deployment-initializer,create-backup]
@@ -44,9 +43,10 @@ jobs:
    runs-on: self-hosted
    steps:
     - name: restore Database
-      run: sqlcmd -S TWX\WINDCHILL -Q "RESTORE DATABASE wcdbadmin FROM DISK='C:\Backup\DB\${{needs.deployment-initializer.outputs.DatabaseBackupId}}' WITH REPLACE"
+      run: sqlcmd -S TWX\WINDCHILL -Q "RESTORE DATABASE wcdbadmin FROM DISK='C:\Backup\DB\${{needs.deployment-initializer.outputs.DatabaseBackupId}}.bak' WITH REPLACE"
     - name: restore Codebase 
       run:  xcopy /y/i/s "C:\\Backup\\Codebase\\${{needs.deployment-initializer.outputs.codebaseBackupId}}" "C:\\ptc\\Windchill_12.1\\Windchill\\codebase"
+  
   build:
     needs: deployment-initializer
     if: ${{ needs.deployment-initializer.outputs.buildType == 'incremental' || needs.deployment-initializer.outputs.buildType == 'full' }}
