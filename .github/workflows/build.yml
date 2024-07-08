@@ -32,8 +32,7 @@ jobs:
    if: ${{ needs.deployment-initializer.outputs.executeBackup == 'true' }}
    uses: ./.github/workflows/create-backup.yml
    with:
-     inputs: |
-       date=${{needs.deployment-initializer.outputs.date}}
+    date: ${{needs.deployment-initializer.outputs.date}}
   
   restore-windchill:
    needs: [deployment-initializer,create-backup]
