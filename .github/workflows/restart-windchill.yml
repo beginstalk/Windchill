@@ -1,0 +1,12 @@
+name: Restart Windchill
+on:
+ workflow_call:
+jobs:
+  restart-windchill:
+    runs-on: self-hosted
+    steps:
+    - name: Restart
+      run: |
+        (windchill stop || echo Windchill restarting) && windchill start
+         ping 127.0.0.1 -n 300 > nul
+  

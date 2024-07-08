@@ -1,0 +1,22 @@
+name: Restore Windchill
+on:
+  workflow_call:
+   inputs:
+     backup-id:
+       description: Windchill Backup Id to restore
+       required: true
+       type: string
+
+jobs:
+   create-backup:
+      uses: ./.github/workflows/create-backup.yml
+
+   restore-windchill:
+    needs: create-backup
+    runs-on: self-hosted
+    steps:
+     - name: Restore Windchill Codebase
+       run: |
+         #  xcopy /y/i/s "C:\\Backup\\Codebase\\${{inputs.backup-id}}" "C:\\ptc\\Windchill_12.1\\Windchill\\codebase"
+         echo "Windchill Codebase is Restored with id ${{inputs.backup-id}}"
+ 

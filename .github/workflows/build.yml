@@ -11,46 +11,50 @@ jobs:
    outputs:
     executeBackup: ${{ steps.set-outputs.outputs.executeBackup }}
     buildType: ${{ steps.set-outputs.outputs.buildType }}
-    date: ${{ steps.set-outputs.outputs.date }}
-    executeRestore: ${{ steps.set-outputs.outputs.executeRestore }}
-    codebaseBackupId: ${{ steps.set-outputs.outputs.codebaseBackupid }}
-    DatabaseBackupId: ${{ steps.set-outputs.outputs.DatabaseBackupid }}
+    executeRestoreDatabase: ${{ steps.set-outputs.outputs.executeRestoreDatabase }}
+    executeRestoreWindchill: ${{ steps.set-outputs.outputs.executeRestoreWindchill }}
+    windchillBackupId: ${{ steps.set-outputs.outputs.windchillBackupId }}
+    databaseBackupId: ${{ steps.set-outputs.outputs.databaseBackupId }}
    steps:
     - name: set the output
       id: set-outputs
       run: | 
        echo "::set-output name=executeBackup::true"
-       echo "::set-output name=buildType::xyz"
-       $NOW=& Get-Date -format yyyy-MM-dd
-       echo "::set-output name=date::$NOW"
-       echo "::set-output name=executeRestore::false"
-       echo "::set-output name=codebaseBackupid::2024-07-08"
-       echo "::set-output name=DatabaseBackupid::2024-07-08"
+       echo "::set-output name=buildType::full"
+       echo "::set-output name=executeRestoreDatabase::true"
+       echo "::set-output name=executeRestoreWindchill::true"
+       echo "::set-output name=windchillBackupId::2024-07-08_09-03"
+       echo "::set-output name=databaseBackupId::2024-07-08_09-03"
 
   create-backup:
    needs: deployment-initializer
    if: ${{ needs.deployment-initializer.outputs.executeBackup == 'true' }}
    uses: ./.github/workflows/create-backup.yml
   
+  restore-database:
+   needs: deployment-initializer
+   if: ${{ needs.deployment-initializer.outputs.executeRestoreDatabase == 'true' }}
+   uses: ./.github/workflows/restore-database.yml
+   with:
+     backup-id: ${{needs.deployment-initializer.outputs.databaseBackupId}}
+  
   restore-windchill:
    needs: deployment-initializer
-   if: ${{ needs.deployment-initializer.outputs.executeRestore == 'true' }}
-   runs-on: self-hosted
-   steps:
-    - name: restore Database
-      run: sqlcmd -S TWX\WINDCHILL -Q "RESTORE DATABASE wcdbadmin FROM DISK='C:\Backup\DB\${{needs.deployment-initializer.outputs.DatabaseBackupId}}.bak' WITH REPLACE"
-    - name: restore Codebase 
-      run:  xcopy /y/i/s "C:\\Backup\\Codebase\\${{needs.deployment-initializer.outputs.codebaseBackupId}}" "C:\\ptc\\Windchill_12.1\\Windchill\\codebase"
-  
-  build:
+   if: ${{ needs.deployment-initializer.outputs.executeRestoreWindchill == 'true' }}
+   uses: ./.github/workflows/restore-windchill.yml
+   with:
+     backup-id: ${{needs.deployment-initializer.outputs.windchillBackupId}}
+   
+  incremental-build:
     needs: deployment-initializer
-    if: ${{ needs.deployment-initializer.outputs.buildType == 'incremental' || needs.deployment-initializer.outputs.buildType == 'full' }}
+    if: ${{ needs.deployment-initializer.outputs.buildType == 'incremental'}}
     runs-on: self-hosted
     steps:
       - name: checkout code
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 
+      
       - name: Set up JDK 17
         uses: actions/setup-java@v1
         with:
@@ -73,6 +77,7 @@ jobs:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+
       - name: Build and analyze
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -85,7 +90,7 @@ jobs:
           format: space-delimited
           token: ${{secrets.ACCESS_GITHUB_TOKEN}}
 
-      - name: import Load Files
+      - name: import Modified Load Files
         env:
           MODIFIED_FILES: ${{steps.abc.outputs.added_modified}}
         run: |
@@ -100,6 +105,73 @@ jobs:
         run: |
           cd scripts
           ./windchillBuild.bat
+
+
+  full-build:
+    needs: deployment-initializer
+    if: ${{ needs.deployment-initializer.outputs.buildType == 'full'}}
+    runs-on: self-hosted
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 
+      
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+
+      - uses: s4u/maven-settings-action@v3.0.0
+        with:
+         servers: '[{"id": "artifactory-repo", "username": "admin", "password": "Admin123"}]'
+
+      - name: Cache SonarQube packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Cache Maven packages
+        uses: actions/cache@v1
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Build and analyze
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+
+      - uses: jitterbit/get-changed-files@v1
+        id: abc
+        with: 
+          format: space-delimited
+          token: ${{secrets.ACCESS_GITHUB_TOKEN}}
+
+      - name: import All the Load Files
+        env:
+          MODIFIED_FILES: ${{steps.abc.outputs.all}}
+        run: |
+          cd scripts
+          ./importloadfiles.bat
+
+      - name: Windchill Build
+        env:
+          WINDCHILL_URL: ${{ secrets.WINDCHILL_URL }}
+          WINDCHILL_USERNAME: ${{ secrets.WINDCHILL_USERNAME }}
+          WINDCHILL_PASSWORD: ${{ secrets.WINDCHILL_PASSWORD }}
+        run: |
+          cd scripts
+          ./windchillBuild.bat
+      
+
+
+
+      
 
       
      

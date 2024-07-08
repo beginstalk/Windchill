@@ -1,0 +1,22 @@
+name: Restore Database 
+on:
+  workflow_call:
+   inputs:
+     backup-id:
+       description: Database Backup Id to restore
+       required: true
+       type: string
+
+jobs:
+   create-backup:
+      uses: ./.github/workflows/create-backup.yml
+  
+   restore-database:
+    needs: create-backup
+    runs-on: self-hosted
+    steps:
+     - name: Restore Database
+       run: |
+        # sqlcmd -S TWX\WINDCHILL -Q "RESTORE DATABASE wcdbadmin FROM DISK='C:\Backup\DB\${{inputs.backup-id}}.bak' WITH REPLACE"
+        echo "Database is Restored with id ${{inputs.backup-id}}"
+ 
