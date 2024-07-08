@@ -24,8 +24,12 @@ jobs:
        $NOW=& Get-Date -format yyyy-MM-dd
        echo "::set-output name=date::$NOW"
        echo "::set-output name=executeRestore::false"
-       echo "::set-output name=codebaseBackupid::2024-07-05"
-       echo "::set-output name=DatabaseBackupid::2024-07-05"
+       echo "::set-output name=codebaseBackupid::2024-07-08"
+       echo "::set-output name=DatabaseBackupid::2024-07-08"
+    - name: checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 
 
   create-backup:
    needs: deployment-initializer
