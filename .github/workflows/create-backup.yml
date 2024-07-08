@@ -9,6 +9,10 @@ jobs:
   create-backup:
     runs-on: self-hosted
     steps:
+    - name: checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 
     - name: Database Backup
       run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB\${{inputs.date}}.bak' WITH INIT"
 

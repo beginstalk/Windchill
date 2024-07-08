@@ -31,11 +31,6 @@ jobs:
    needs: deployment-initializer
    runs-on: self-hosted
    if: ${{ needs.deployment-initializer.outputs.executeBackup == 'true' }}
-   steps:
-    - name: checkout code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 0 
     - uses: ./.github/workflows/create-backup.yml
       with:
        inputs: |
