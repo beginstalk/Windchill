@@ -2,8 +2,7 @@
 name: Sonar analysis
 on:
   push:
-    branches:
-      - "*"
+
 jobs:
   build:
     name: Build
