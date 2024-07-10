@@ -22,7 +22,7 @@ jobs:
        echo "::set-output name=executeBackup::false"
        echo "::set-output name=buildType::xyx"
        echo "::set-output name=executeRestoreDatabase::false"
-       echo "::set-output name=executeRestoreWindchill::true"
+       echo "::set-output name=executeRestoreWindchill::false"
        echo "::set-output name=windchillBackupId::2024-07-08_09-03"
        echo "::set-output name=databaseBackupId::2024-07-08_09-03"
 
@@ -108,7 +108,7 @@ jobs:
 
 
   full-build:
-    needs: deployment-initializer
+    needs: [deployment-initializer,create-backup]
     if: ${{ needs.deployment-initializer.outputs.buildType == 'full'}}
     runs-on: self-hosted
     steps:
