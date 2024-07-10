@@ -20,7 +20,7 @@ jobs:
       id: set-outputs
       run: | 
        echo "::set-output name=executeBackup::true"
-       echo "::set-output name=buildType::full"
+       echo "::set-output name=buildType::incremental"
        echo "::set-output name=executeRestoreDatabase::false"
        echo "::set-output name=executeRestoreWindchill::false"
        echo "::set-output name=windchillBackupId::2024-07-08_09-03"
