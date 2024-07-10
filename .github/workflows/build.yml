@@ -1,5 +1,5 @@
 ---
-name: DeploymentByType
+name: Deployment 
 on:
   push:
     branches:
@@ -19,8 +19,8 @@ jobs:
     - name: set the output
       id: set-outputs
       run: | 
-       echo "::set-output name=executeBackup::false"
-       echo "::set-output name=buildType::xyx"
+       echo "::set-output name=executeBackup::true"
+       echo "::set-output name=buildType::full"
        echo "::set-output name=executeRestoreDatabase::false"
        echo "::set-output name=executeRestoreWindchill::false"
        echo "::set-output name=windchillBackupId::2024-07-08_09-03"
@@ -62,7 +62,7 @@ jobs:
 
       - uses: s4u/maven-settings-action@v3.0.0
         with:
-         servers: '[{"id": "artifactory-repo", "username": "admin", "password": "Admin123"}]'
+         servers: '[{"id": "artifactory-repo", "username": "admin", "password": "${{secrets.JFROG_ARTIFACTORY_PASSWORD}}"}]'
 
       - name: Cache SonarQube packages
         uses: actions/cache@v1
@@ -124,7 +124,7 @@ jobs:
 
       - uses: s4u/maven-settings-action@v3.0.0
         with:
-         servers: '[{"id": "artifactory-repo", "username": "admin", "password": "Admin123"}]'
+         servers: '[{"id": "artifactory-repo", "username": "admin", "password": "${{secrets.JFROG_ARTIFACTORY_PASSWORD}}"}]'
 
       - name: Cache SonarQube packages
         uses: actions/cache@v1
@@ -146,18 +146,13 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
 
-      - uses: jitterbit/get-changed-files@v1
-        id: abc
-        with: 
-          format: space-delimited
-          token: ${{secrets.ACCESS_GITHUB_TOKEN}}
-
       - name: import All the Load Files
-        env:
-          MODIFIED_FILES: ${{steps.abc.outputs.all}}
         run: |
-          cd scripts
-          ./importloadfiles.bat
+           $file_list = Get-ChildItem C:\actions-runner\_work\Windchill\Windchill\loadFiles\com\accenture -Recurse -File | ForEach-Object { $_.FullName }
+           foreach ($file in $file_list) {
+               echo "Processing $file"
+               windchill wt.load.LoadFromFile -u ${{ secrets.WINDCHILL_USERNAME }} -p ${{ secrets.WINDCHILL_PASSWORD }} -d $file
+           }
 
       - name: Windchill Build
         env:
