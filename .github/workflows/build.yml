@@ -92,7 +92,8 @@ jobs:
 
       - name: import Modified Load Files
         env:
-          MODIFIED_FILES: ${{steps.abc.outputs.added_modified}}
+          FILES: ${{steps.abc.outputs.added_modified}}
+          BUILD_TYPE: "incremental"
         run: |
           cd scripts
           ./importloadfiles.bat
@@ -145,14 +146,21 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+      
+      - uses: get-all-loadfiles
+        id: abc
+        run: |
+           $file_list = Get-ChildItem C:\actions-runner\_work\Windchill\Windchill\loadFiles -Recurse -File | ForEach-Object { $_.FullName }
+           $files = $file_list -join ' '
+           echo "::set-output name=LoadFiles::$files"
 
       - name: import All the Load Files
+        env:
+          FILES: ${{steps.abc.outputs.LoadFiles}}
+          BUILD_TYPE: "full"
         run: |
-           $file_list = Get-ChildItem C:\actions-runner\_work\Windchill\Windchill\loadFiles\com\accenture -Recurse -File | ForEach-Object { $_.FullName }
-           foreach ($file in $file_list) {
-               echo "Processing $file"
-               windchill wt.load.LoadFromFile -u ${{ secrets.WINDCHILL_USERNAME }} -p ${{ secrets.WINDCHILL_PASSWORD }} -d $file
-           }
+          cd scripts
+          ./importloadfiles.bat
 
       - name: Windchill Build
         env:

@@ -18,11 +18,13 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Database Backup
-      run: sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB\${{needs.set-up-environment.outputs.date}}.bak' WITH INIT"  
+      run: |
+       # sqlcmd -S TWX\WINDCHILL -Q "BACKUP DATABASE wcdbadmin TO DISK='C:\Backup\DB\${{needs.set-up-environment.outputs.date}}.bak' WITH INIT"  
   
   windchill-backup:
      needs: set-up-environment
      runs-on: self-hosted
      steps:
      - name: Windchill Codebase Backup
-       run: xcopy /y/i/s "C:\ptc\Windchill_12.1\Windchill\codebase" "C:\Backup\Codebase\${{needs.set-up-environment.outputs.date}}"
+       run: | 
+        # xcopy /y/i/s "C:\ptc\Windchill_12.1\Windchill\codebase" "C:\Backup\Codebase\${{needs.set-up-environment.outputs.date}}"
