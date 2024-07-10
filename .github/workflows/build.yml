@@ -152,7 +152,7 @@ jobs:
         run: |
            $file_list = Get-ChildItem C:\actions-runner\_work\Windchill\Windchill\loadFiles -Recurse -File | ForEach-Object { $_.FullName }
            $files = $file_list -join ' '
-           $files = $files -replace '\\', '/'
+          #  $files = $files -replace '\\', '/'
            echo "::set-output name=LoadFiles::$files"
 
       - name: import All the Load Files
