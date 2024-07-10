@@ -147,7 +147,7 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
       
-      - uses: get-all-loadfiles
+      - name: get-all-loadfiles
         id: abc
         run: |
            $file_list = Get-ChildItem C:\actions-runner\_work\Windchill\Windchill\loadFiles -Recurse -File | ForEach-Object { $_.FullName }
