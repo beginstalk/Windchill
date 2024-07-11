@@ -19,12 +19,12 @@ jobs:
     - name: set the output
       id: set-outputs
       run: | 
-       echo "::set-output name=executeBackup::true"
+       echo "::set-output name=executeBackup::false"
        echo "::set-output name=buildType::none"
-       echo "::set-output name=executeRestoreDatabase::false"
-       echo "::set-output name=executeRestoreWindchill::false"
-       echo "::set-output name=windchillBackupId::2024-07-08_09-03"
-       echo "::set-output name=databaseBackupId::2024-07-08_09-03"
+       echo "::set-output name=executeRestoreDatabase::true"
+       echo "::set-output name=executeRestoreWindchill::true"
+       echo "::set-output name=windchillBackupId::2024-07-11_09-50"
+       echo "::set-output name=databaseBackupId::2024-07-11_09-50"
 
   create-backup:
    needs: deployment-initializer
