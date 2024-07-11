@@ -8,6 +8,7 @@ jobs:
     - name: Restart
       shell: cmd
       run: |
+        PATH
         windchill stop || echo "Windchill already stopped, starting it" && windchill start
         ping 127.0.0.1 -n 300 > nul
   
