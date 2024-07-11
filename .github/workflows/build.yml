@@ -13,7 +13,7 @@ jobs:
     buildType: ${{ steps.set-outputs.outputs.buildType }}
     executeRestoreDatabase: ${{ steps.set-outputs.outputs.executeRestoreDatabase }}
     executeRestoreWindchill: ${{ steps.set-outputs.outputs.executeRestoreWindchill }}
-    executeRestartWindchill: ${{needs.deployment-initializer.outputs.executeRestartWindchill}}
+    executeRestartWindchill: ${{ steps.set-outputs.outputs.executeRestartWindchill }}
     windchillBackupId: ${{ steps.set-outputs.outputs.windchillBackupId }}
     databaseBackupId: ${{ steps.set-outputs.outputs.databaseBackupId }}
    steps:
