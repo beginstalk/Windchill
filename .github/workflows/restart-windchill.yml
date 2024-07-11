@@ -8,7 +8,8 @@ jobs:
     - name: Restart
       shell: cmd
       run: |
-        set PATH=%PATH%;C:\ptc\Windchill_12.1\Windchill;C:\Program Files\Java\jdk-11.0.12
+        set PATH=%PATH%;C:\ptc\Windchill_12.1\Windchill
+        set PATH=%PATH%;C:\Program Files\Java\jdk-11.0.12
         PATH
         windchill stop || echo "Windchill already stopped, starting it" && windchill start
         ping 127.0.0.1 -n 300 > nul
