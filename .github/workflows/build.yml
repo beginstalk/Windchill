@@ -13,16 +13,18 @@ jobs:
     buildType: ${{ steps.set-outputs.outputs.buildType }}
     executeRestoreDatabase: ${{ steps.set-outputs.outputs.executeRestoreDatabase }}
     executeRestoreWindchill: ${{ steps.set-outputs.outputs.executeRestoreWindchill }}
+    executeRestartWindchill: ${{needs.deployment-initializer.outputs.executeRestartWindchill}}
     windchillBackupId: ${{ steps.set-outputs.outputs.windchillBackupId }}
     databaseBackupId: ${{ steps.set-outputs.outputs.databaseBackupId }}
    steps:
     - name: set the output
       id: set-outputs
       run: | 
-       echo "::set-output name=executeBackup::true"
-       echo "::set-output name=buildType::full"
+       echo "::set-output name=executeBackup::false"
+       echo "::set-output name=buildType::none"
        echo "::set-output name=executeRestoreDatabase::false"
        echo "::set-output name=executeRestoreWindchill::false"
+       echo "::set-output name=executeRestartWindchill::false"
        echo "::set-output name=windchillBackupId::2024-07-08_09-03"
        echo "::set-output name=databaseBackupId::2024-07-08_09-03"
 
@@ -44,6 +46,11 @@ jobs:
    uses: ./.github/workflows/restore-windchill.yml
    with:
      backup-id: ${{needs.deployment-initializer.outputs.windchillBackupId}}
+  
+  restart-windchill:
+   needs: deployment-initializer
+   if: ${{ needs.deployment-initializer.outputs.executeRestartWindchill == 'true' }}
+   uses: ./.github/workflows/restart-windchill.yml
    
   incremental-build:
     needs: deployment-initializer
