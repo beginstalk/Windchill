@@ -6,7 +6,9 @@ jobs:
     runs-on: self-hosted
     steps:
     - name: Restart
+      shell: cmd
       run: |
-        (windchill stop || echo Windchill restarting) && windchill start
-         ping 127.0.0.1 -n 300 > nul
+        set PATH=%PATH%;C:\ptc\Windchill_12.1\Windchill;C:\Program Files\Java\jdk-11.0.12
+        windchill stop || echo "Windchill already stopped, starting it" && windchill start
+        ping 127.0.0.1 -n 300 > nul
   
