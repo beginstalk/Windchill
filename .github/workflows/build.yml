@@ -24,7 +24,7 @@ jobs:
        echo "::set-output name=buildType::none"
        echo "::set-output name=executeRestoreDatabase::false"
        echo "::set-output name=executeRestoreWindchill::false"
-       echo "::set-output name=executeRestartWindchill::false"
+       echo "::set-output name=executeRestartWindchill::true"
        echo "::set-output name=windchillBackupId::2024-07-08_09-03"
        echo "::set-output name=databaseBackupId::2024-07-08_09-03"
 
