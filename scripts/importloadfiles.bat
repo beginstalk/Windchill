@@ -28,7 +28,7 @@ if "!BUILD_TYPE!"=="full" (
         set "PREFIX=C:/actions-runner/_work/Windchill/Windchill/"
         echo !FILE!
         if "!START_WITH!"=="loadFiles/com/accenture" (
-            set "FULL_FILE_NAME=%PREFIX%%%i"
+            set "FULL_FILE_NAME=!PREFIX!%%i"
             echo "For Incremental Build"
             echo !PREFIX!
             echo !FULL_FILE_NAME!
