@@ -8,7 +8,6 @@
       <csvdescription></csvdescription>
    </csvPreferenceCategory>
    
-   
     <csvPreferenceCategory handler="wt.preference.LoadPreference.createPreferenceCategory">
       <csvname>interfaces</csvname>
       <csvparentName>accenture</csvparentName>
