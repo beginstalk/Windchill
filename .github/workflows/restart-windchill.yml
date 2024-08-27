@@ -9,5 +9,7 @@ jobs:
       shell: cmd
       run: |
         windchill stop || echo "Windchill already stopped,starting it" && windchill start
+        echo "Windchill is starting"
         ping 127.0.0.1 -n 300 > nul
+        echo "Windchill Started"
   
