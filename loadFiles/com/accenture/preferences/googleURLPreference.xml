@@ -22,7 +22,7 @@
       <csvdisplayName>Google URL</csvdisplayName>
       <csvdescription>URL for the Google.com Domain</csvdescription>
       <csvlongDescription>This prefernce is mainly set up to get the Google URL</csvlongDescription>
-      <csvdefaultValue>https://www.google.com/</csvdefaultValue>
+      <csvdefaultValue>https://www.yahoo.com/</csvdefaultValue>
       <csvhandler>com.ptc.windchill.enterprise.preference.handler.StringPreferenceValueHandler:4000</csvhandler>
    </csvPreferenceDefinition>
 
