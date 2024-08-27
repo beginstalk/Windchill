@@ -1,5 +1,4 @@
             <AttributeValues objType="wt.part.WTPart">
-
                <!-- set the folder -->
                <AttrValue id="folder.id" algorithm="com.ptc.core.foundation.folder.server.impl.FolderPathAttributeAlgorithm">
                   <Arg>/Default</Arg>
