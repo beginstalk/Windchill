@@ -29,6 +29,7 @@ if "!BUILD_TYPE!"=="full" (
         echo !FILE!
         if "!START_WITH!"=="loadFiles/com/accenture" (
             set "FULL_FILE_NAME=%PREFIX%%%i"
+            echo !FULL_FILE_NAME!
             windchill wt.load.LoadFromFile -u wcadmin -p wcadmin -d !FULL_FILE_NAME!
         )
     )
