@@ -5,6 +5,7 @@
    <objecttype name="openInGoogle">
 	<action name="openInGoogle"> 
 	<label>Open In Google</label>
+         <icon>netmarkets/images/google.jpg</icon>
 	<command url="netmarkets/jsp/openDynamicUrl.jsp" windowType="popup"/>
 	</action>
    </objecttype>
